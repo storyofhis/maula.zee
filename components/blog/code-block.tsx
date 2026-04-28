@@ -4,64 +4,105 @@ import { useState, useRef, ReactNode } from "react";
 
 export function CodeBlock({ children }: { children: ReactNode }) {
   const [copied, setCopied] = useState(false);
-  const textInput = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const onCopy = async () => {
-    if (!textInput.current) return;
     try {
-      const text = textInput.current.innerText || textInput.current.textContent || "";
-      
-      if (navigator.clipboard && window.isSecureContext) {
-        // Modern approach
-        await navigator.clipboard.writeText(text);
-      } else {
-        // Fallback for iframes or non-secure contexts
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "absolute";
-        textArea.style.left = "-999999px";
-        document.body.prepend(textArea);
-        textArea.select();
-        try {
-          document.execCommand('copy');
-        } catch (error) {
-          console.error("Fallback copy failed", error);
-        } finally {
-          textArea.remove();
+      if (!containerRef.current) return;
+
+      // Get all text content from the pre > code element
+      const codeElement = containerRef.current.querySelector("code");
+      let textToCopy = "";
+
+      if (codeElement) {
+        // Get text node by node to preserve structure without HTML
+        const walker = document.createTreeWalker(
+          codeElement,
+          NodeFilter.SHOW_TEXT,
+          null
+        );
+
+        let node;
+        while ((node = walker.nextNode())) {
+          textToCopy += node.textContent;
         }
+      } else {
+        // Fallback to pre's textContent
+        const preElement = containerRef.current.querySelector("pre");
+        textToCopy = preElement?.textContent || "";
       }
-      
+
+      // Clean up the text
+      textToCopy = textToCopy.trim();
+
+      if (!textToCopy) {
+        console.error("No code to copy");
+        return;
+      }
+
+      // Copy to clipboard
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(textToCopy);
+      } else {
+        // Fallback for older browsers
+        const textarea = document.createElement("textarea");
+        textarea.value = textToCopy;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
       setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error("Copy failed:", error);
     }
   };
 
   return (
-    <div className="relative group my-6">
+    <div
+      ref={containerRef}
+      className="relative group my-6 bg-slate-900 dark:bg-slate-950 rounded-lg border border-slate-700 dark:border-slate-800 overflow-hidden"
+    >
       <button
         onClick={onCopy}
-        className="absolute right-3 top-3 px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 text-slate-300 rounded-md opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center gap-1.5 text-xs font-medium backdrop-blur-sm border border-slate-600 shadow-sm"
+        className="absolute right-2 top-2 px-3 py-1.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-100 rounded opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center gap-1.5"
         aria-label="Copy code"
       >
         {copied ? (
           <>
-            <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-            <span className="text-green-400">Copied!</span>
+            <svg
+              className="w-3.5 h-3.5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Copied!
           </>
         ) : (
           <>
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+            <svg
+              className="w-3.5 h-3.5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M8 3a1 1 0 011-1h2a1 1 0 011 1v1h2V4a2 2 0 00-2-2h-2a2 2 0 00-2 2v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1V4z" />
+            </svg>
             Copy
           </>
         )}
       </button>
-      <div ref={textInput} className="w-full">
+      <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto">
         {children}
-      </div>
+      </pre>
     </div>
   );
 }

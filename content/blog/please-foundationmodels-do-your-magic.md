@@ -10,6 +10,7 @@ tags: ["AI", "Foundation Models", "Thoughts"]
 
 ## Introduction
 
+*here's the tutorial Apple Foundation Model*
 This is where your medium article content will go. Because your blog now supports **Markdown**, you can easily add code blocks, images, and formatting just like this!
 
 ### Example Code Block

@@ -2,30 +2,6 @@ import Button from "@/components/button/button";
 import Link from "next/link";
 
 export default function Home() {
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "Modern online store with real-time inventory management",
-      tags: ["React", "Next.js", "TypeScript", "PostgreSQL"],
-      image: "🛍️",
-    },
-    {
-      id: 2,
-      title: "SaaS Dashboard",
-      description: "Analytics dashboard with real-time data visualization",
-      tags: ["Next.js", "Tailwind CSS", "Chart.js", "Node.js"],
-      image: "📊",
-    },
-    {
-      id: 3,
-      title: "Mobile App Design",
-      description: "Beautiful iOS app interface with smooth animations",
-      tags: ["Figma", "Framer Motion", "React Native", "UI/UX"],
-      image: "📱",
-    },
-  ];
-
   const services = [
     {
       icon: "🎨",
@@ -78,10 +54,14 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
-              <Button size="lg">Get Started</Button>
-              <Button variant="outline" size="lg">
-                View My Work
-              </Button>
+              <Link href="/about">
+                <Button size="lg">Learn About Me</Button>
+              </Link>
+              <Link href="/blog">
+                <Button variant="outline" size="lg">
+                  Read My Blog
+                </Button>
+              </Link>
             </div>
 
             {/* Scroll Indicator */}
@@ -109,10 +89,76 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+              My Experience
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400">
+              Full-stack software engineer with expertise in frontend and backend development
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {/* Frontend Experience */}
+            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300">
+              <div className="mb-4">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  Frontend Development
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  First professional experience
+                </p>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
+                Built modern, responsive web applications with a focus on performance and user experience.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Next.js", "React.js", "TypeScript", "JavaScript", "Tailwind CSS"].map((tech) => (
+                  <span key={tech} className="px-3 py-1 text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Backend Experience */}
+            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300">
+              <div className="mb-4">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  Backend & Infrastructure
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  Current focus
+                </p>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
+                Specialized in building scalable backend systems including payment gateway integration, containerization with Docker, and microservices architecture using NATS.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Payment Gateways", "Docker", "NATS", "Node.js", "PostgreSQL", "Microservices"].map((tech) => (
+                  <span key={tech} className="px-3 py-1 text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center pt-8">
+            <Link href="/about">
+              <Button variant="outline">Learn More About My Experience</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What I Offer Section */}
+      <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
               What I Offer
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Comprehensive solutions for your digital needs
+              Solutions built with modern technologies and best practices
             </p>
           </div>
 
@@ -140,54 +186,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Featured Projects
+              Latest Articles
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Selected work that showcases my skills and expertise
+              Read my thoughts on web development and technology
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="group rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-700"
-              >
-                {/* Project Image */}
-                <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
-                  {project.image}
-                </div>
-
-                {/* Project Info */}
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 text-sm bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* View All Projects */}
-          <div className="text-center pt-12">
-            <Link href="/projects">
+          <div className="text-center">
+            <Link href="/blog">
               <Button variant="outline" size="lg">
-                View All Projects
+                View All Articles
               </Button>
             </Link>
           </div>
@@ -198,16 +207,20 @@ export default function Home() {
       <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            Ready to Start Your Project?
+            Let's Connect
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-            Let's create something amazing together. Get in touch and let's discuss your ideas.
+            Interested in learning more about my experiences and work? Check out my blog and about page.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg">Contact Me</Button>
-            <Button variant="secondary" size="lg">
-              Schedule a Call
-            </Button>
+            <Link href="/about">
+              <Button size="lg">About Me</Button>
+            </Link>
+            <Link href="/blog">
+              <Button variant="secondary" size="lg">
+                Read My Blog
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
