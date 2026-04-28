@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +23,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.prose :not(pre) > code {
+  background-color: var(--color-slate-100);
+  color: var(--color-pink-600);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose :not(pre) > code {
+    background-color: var(--color-slate-800);
+    color: var(--color-cyan-400);
+  }
+}
+
+/* Fix double background on code blocks */
+.prose pre {
+  background-color: #0d1117 !important; /* GitHub Dark background */
+  border: 1px solid var(--color-slate-800);
+}
+
+.prose pre code.hljs {
+  background-color: transparent !important;
+  padding: 0 !important;
 }

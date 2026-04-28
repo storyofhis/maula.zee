@@ -26,14 +26,14 @@ const Button: React.FC<ButtonProps> = ({
 
     const variantStyles = {
         primary: disabled
-            ? "bg-gray-200/50 text-gray-400 cursor-not-allowed"
-            : "bg-gradient-to-br from-slate-900 to-slate-800 text-white hover:shadow-xl hover:shadow-slate-900/20 focus:ring-slate-700 active:from-slate-800 active:to-slate-700",
+            ? "bg-gray-200/50 text-gray-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500"
+            : "bg-gradient-to-br from-slate-900 to-slate-800 text-white hover:shadow-xl hover:shadow-slate-900/20 focus:ring-slate-700 active:from-slate-800 active:to-slate-700 dark:from-white dark:to-slate-200 dark:text-slate-900 dark:hover:shadow-white/20 dark:focus:ring-white dark:active:from-slate-200 dark:active:to-slate-300",
         secondary: disabled
-            ? "bg-gray-200/50 text-gray-400 cursor-not-allowed"
-            : "bg-gray-100 text-slate-900 hover:bg-gray-200 hover:shadow-md hover:shadow-gray-300/30 focus:ring-gray-300 active:bg-gray-150",
+            ? "bg-gray-200/50 text-gray-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500"
+            : "bg-gray-100 text-slate-900 hover:bg-gray-200 hover:shadow-md hover:shadow-gray-300/30 focus:ring-gray-300 active:bg-gray-300 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 dark:hover:shadow-slate-900/50 dark:focus:ring-slate-700 dark:active:bg-slate-600",
         outline: disabled
-            ? "border-2 border-gray-300 text-gray-400 cursor-not-allowed"
-            : "border-2 border-slate-300 text-slate-900 hover:bg-slate-50/50 hover:shadow-md hover:border-slate-400 focus:ring-slate-300 active:bg-slate-100",
+            ? "border-2 border-gray-300 text-gray-400 cursor-not-allowed dark:border-slate-700 dark:text-slate-500"
+            : "border-2 border-slate-300 text-slate-900 hover:bg-slate-50/50 hover:shadow-md hover:border-slate-400 focus:ring-slate-300 active:bg-slate-100 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800/50 dark:hover:border-slate-600 dark:focus:ring-slate-700 dark:active:bg-slate-800",
     };
 
     const classNames = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]}`;
