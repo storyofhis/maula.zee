@@ -2,29 +2,6 @@ import Button from "@/components/button/button";
 import Link from "next/link";
 
 export default function Home() {
-  const services = [
-    {
-      icon: "🎨",
-      title: "UI/UX Design",
-      description: "Creating beautiful and intuitive user interfaces",
-    },
-    {
-      icon: "⚡",
-      title: "Web Development",
-      description: "Fast, modern web applications built with latest technologies",
-    },
-    {
-      icon: "🔧",
-      title: "Full Stack Solutions",
-      description: "Complete end-to-end development from frontend to backend",
-    },
-    {
-      icon: "📈",
-      title: "Performance Optimization",
-      description: "Optimizing for speed, SEO, and user experience",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Hero Section */}
@@ -146,37 +123,6 @@ export default function Home() {
             <Link href="/about">
               <Button variant="outline">Learn More About My Experience</Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* What I Offer Section */}
-      <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              What I Offer
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              Solutions built with modern technologies and best practices
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  {service.description}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
