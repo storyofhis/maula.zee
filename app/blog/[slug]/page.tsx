@@ -7,6 +7,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
+import { ArrowLeft, Clock, Calendar, Eye } from "lucide-react";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -17,73 +18,74 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     }
 
     return (
-        <article className="container mx-auto px-4 py-12 max-w-4xl">
-            <Link href="/blog" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white mb-8 transition-colors">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                Back to Blog
-            </Link>
-            
-            <header className="mb-10">
-                <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6">
-                    <time dateTime={post.date}>{post.date}</time>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        {post.readTime}
-                    </span>
-                </div>
-                
-                <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-tight">
-                    {post.title}
-                </h1>
-                
-                <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </header>
-
-            <div className="prose prose-lg dark:prose-invert max-w-none prose-slate prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:font-bold prose-strong:text-slate-900 dark:prose-strong:text-white prose-em:italic prose-em:text-slate-700 dark:prose-em:text-slate-300 prose-code:text-red-600 dark:prose-code:text-red-400 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
-                <ReactMarkdown 
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw, rehypeHighlight]}
-                    components={{
-                        // Custom components for better styling
-                        h1: ({ children }) => <h1 className="text-3xl md:text-4xl font-bold mt-6 mb-4">{children}</h1>,
-                        h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold mt-6 mb-4">{children}</h2>,
-                        h3: ({ children }) => <h3 className="text-xl md:text-2xl font-bold mt-4 mb-3">{children}</h3>,
-                        p: ({ children }) => <p className="my-4 leading-7">{children}</p>,
-                        strong: ({ children }) => <strong className="font-bold text-slate-900 dark:text-white">{children}</strong>,
-                        em: ({ children }) => <em className="italic text-slate-800 dark:text-slate-200">{children}</em>,
-                        a: ({ href, children }) => (
-                            <a href={href} className="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300">
-                                {children}
-                            </a>
-                        ),
-                        ul: ({ children }) => <ul className="list-disc list-inside my-4 space-y-2">{children}</ul>,
-                        ol: ({ children }) => <ol className="list-decimal list-inside my-4 space-y-2">{children}</ol>,
-                        li: ({ children }) => <li className="ml-2">{children}</li>,
-                        blockquote: ({ children }) => (
-                            <blockquote className="border-l-4 border-slate-300 dark:border-slate-700 pl-4 italic my-4 text-slate-600 dark:text-slate-400">
-                                {children}
-                            </blockquote>
-                        ),
-                        pre({ children, ...props }) {
-                            return (
-                                <CodeBlock>
-                                    <pre {...props}>
-                                        {children}
-                                    </pre>
-                                </CodeBlock>
-                            );
-                        }
-                    }}
+        <article className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 pt-32 pb-40 px-4">
+            <div className="max-w-4xl mx-auto">
+                <Link 
+                    href="/blog" 
+                    className="group inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 font-bold mb-16 transition-colors"
                 >
-                    {post.content}
-                </ReactMarkdown>
+                    <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> 
+                    BACK TO WRITING
+                </Link>
+                
+                <header className="mb-20">
+                    <div className="flex flex-wrap items-center gap-6 text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">
+                        <span className="flex items-center gap-2"><Calendar size={14} /> {post.date}</span>
+                        <span className="flex items-center gap-2"><Clock size={14} /> {post.readTime}</span>
+                        <span className="flex items-center gap-2"><Eye size={14} /> 1.2k views</span>
+                    </div>
+                    
+                    <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 mb-10 leading-[0.95]">
+                        {post.title}
+                    </h1>
+                    
+                    <div className="flex flex-wrap gap-3">
+                        {post.tags.map((tag) => (
+                            <span key={tag} className="px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 rounded-full border border-zinc-200 dark:border-zinc-800">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </header>
+
+                <div className="prose prose-zinc dark:prose-invert max-w-none 
+                    prose-headings:font-black prose-headings:tracking-tighter 
+                    prose-h1:text-4xl md:prose-h1:text-5xl 
+                    prose-h2:text-3xl md:prose-h2:text-4xl 
+                    prose-p:text-xl prose-p:leading-relaxed prose-p:text-zinc-600 dark:prose-p:text-zinc-400
+                    prose-strong:text-zinc-950 dark:prose-strong:text-zinc-50
+                    prose-blockquote:border-l-4 prose-blockquote:border-zinc-200 dark:prose-blockquote:border-zinc-800 prose-blockquote:italic
+                    prose-pre:p-0 prose-pre:bg-transparent prose-pre:border-none
+                ">
+                    <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw, rehypeHighlight]}
+                        components={{
+                            pre({ children }) {
+                                return <CodeBlock>{children}</CodeBlock>;
+                            },
+                            a: ({ href, children }) => (
+                                <a href={href} className="text-zinc-950 dark:text-zinc-50 underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-950 dark:hover:decoration-zinc-50 transition-colors">
+                                    {children}
+                                </a>
+                            ),
+                        }}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
+                </div>
+
+                <footer className="mt-32 pt-16 border-t border-zinc-100 dark:border-zinc-900">
+                    <div className="flex justify-between items-center">
+                        <p className="text-zinc-400 font-medium">Thanks for reading.</p>
+                        <Link 
+                            href="/blog" 
+                            className="text-zinc-900 dark:text-zinc-100 font-black tracking-tight hover:text-blue-600 transition-colors"
+                        >
+                            MORE STORIES →
+                        </Link>
+                    </div>
+                </footer>
             </div>
         </article>
     );

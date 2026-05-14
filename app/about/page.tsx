@@ -1,273 +1,207 @@
-import Button from "@/components/button/button";
+"use client";
 
-export const metadata = {
-  title: "About | Portfolio",
-  description: "Learn more about my software engineering experience",
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Mail, Download } from "lucide-react";
+
+const fadeUp = {
+  initial: { y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
 
 export default function AboutPage() {
   const educations = [
     {
-      id: 1,
       institution: "Institut Teknologi Sepuluh Nopember (ITS)",
       degree: "Bachelor of Computer Science",
       period: "2020 - 2024",
       description: "Focused on software engineering, algorithms, and system design. Graduated with honors and completed a thesis on scalable web applications."
     },
     {
-      id: 2,
       institution: "Apple Developer Academy @ BINUS, Tangerang",
       degree: "Apple Certified Product Engineer (iOS Development)",
       period: "March 2026 - Now",
       description: "Intensive program focused on iOS development, covering Swift programming, UI/UX design, and app deployment. Currently working on a capstone project to develop a social networking app for local communities."
     }
   ];
+
   const experiences = [
     {
-      id: 1,
-      title: "Frontend Software Engineer",
-      company : "Dinas Pendidikan Kota Surabaya (PPDB Surabaya)",
-      period: "January 2022 - July 2023",
-      description: "Built modern web applications with a strong focus on frontend development",
-      technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "JavaScript"],
-      highlights: [
-        "Developed responsive web applications",
-        "Optimized performance and UX",
-        "Collaborated with design and backend teams",
-        "Implemented modern best practices",
-        "Understanding UI development. Manage some Design System, Developing large Software System",
-        "Solve some bugs in Frontend with ReactJS Typescript, Redux, Integrated with backend using Laravel."
-      ]
-    },
-    {
-      id: 2,
-      title: "Backend Software Engineer Intern", 
-      period: "November 2022 - December 2022",
-      company: "Lingotalk",
-      description: "Focused on backend development and system design for high-performance applications",
-      technologies: ["Docker", "Node.js", "Microservices", "FaunaDB"],
-      highlights: [
-        "Designed and implemented backend systems",
-        "Built scalable microservices architecture",
-        "Containerized applications with Docker",
-        "Collaborated with cross-functional teams",
-        "Diagnosed and resolved bugs, enhancing system functionality and ensuring optimal performance to optimize code efficiency",
-        "Create some service API to make Gamification apps, deployment etc. Using NodeJS with Typescript and Fauna DB (NoSQL) in Database System."
-      ]
-    },
-    {
-      id: 3,
       title: "Software Engineer", 
-      period: "October 2024 - February 2026",
       company: "Bayarind Artha Internusa (Bayarind)",
-      description: "Specialized in backend development including payment gateway integration and microservices",
-      technologies: ["Go (Programming Language)", "PostgreSQL", "NoSQL", "Payment Gateways", "NATS", "Docker"],
-      highlights: [
-        "Designed and implemented payment systems",
-        "Optimized database performance with PostgreSQL",
-        "Implemented message queue systems with NATS",
-        "Applied system design principles for scalability",
-        "Develop Payment Gateway integrated with Faspay (payment gateway provider) in Microservice based and using SNAP (National Standard Open API Payments) for API standardization in Indonesia",
-        "Create Messaging Listener System to track the payment success and failed using NATS and connected with Elastic Search to log every transaction",
-        "Maintaining authentication service to encrypt every transaction and develop gRPC communication to send encrypted message and receive decrypted data in payment services.",
-        "revamped payment single integration code from PHP Native to Go (Programming Language)",
-        "develop payment linkage service to integrate client’s wallet apps"
-      ]
+      period: "2024 - 2026",
+      desc: "Specialized in backend development including payment gateway integration and microservices. Developed SNAP-standard payment services using Go, NATS, and PostgreSQL."
+    },
+    {
+      title: "Frontend Software Engineer",
+      company: "Dinas Pendidikan Kota Surabaya",
+      period: "2022 - 2023",
+      desc: "Built modern web applications with a focus on performance and UX using Next.js, TypeScript, and Redux."
+    },
+    {
+      title: "Backend Engineer Intern", 
+      company: "Lingotalk",
+      period: "2022",
+      desc: "Focused on backend development and system design for high-performance applications using Node.js and FaunaDB."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-        <div className="space-y-8">
-          {/* Heading */}
-          <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight">
-              About Me
-            </h1>
-            <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-light">
-              Being a Product Engineer passionate about building scalable and high-performance applications
-            </p>
-          </div>
-
-          {/* Main Content */}
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16 py-12">
-            {/* Left Column */}
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-                  Who I Am
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  I'm a product engineer with experience in both frontend and backend development. 
-                  I started my career focusing on frontend technologies and have evolved to work on 
-                  complex backend systems. I'm passionate about writing clean, maintainable code and 
-                  building solutions that solve real problems.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-                  What I Do
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  I specialize in full-stack development with expertise in modern web technologies. 
-                  From crafting beautiful user interfaces to building robust backend systems, I ensure 
-                  every project is optimized for performance, scalability, and maintainability.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Skills */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
-                  Technical Stack
-                </h2>
-                <div className="space-y-4">
-                  {/* Frontend */}
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="font-semibold text-slate-900 dark:text-white mb-2">
-                      Frontend
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      Next.js, React.js, TypeScript, JavaScript, Tailwind CSS
-                    </p>
-                  </div>
-
-                  {/* Backend */}
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="font-semibold text-slate-900 dark:text-white mb-2">
-                      Backend & Infrastructure
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      Node.js, Payment Gateways, Docker, NATS, PostgreSQL, Microservices
-                    </p>
-                  </div>
-
-                  {/* Tools & DevOps */}
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="font-semibold text-slate-900 dark:text-white mb-2">
-                      Tools & Practices
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      Git, Docker, VS Code, REST APIs, System Design, Clean Code
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Experience Section */}
-          <div className="space-y-8 py-12 border-t border-slate-200 dark:border-slate-800">
-            <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
-              Professional Experience
-            </h2>
-            
-            <div className="space-y-6">
-              {experiences.map((exp) => (
-                <div key={exp.id} className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                      {exp.title}
-                    </h3>
-                    <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300">
-                      @ {exp.company}
-                    </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                      {exp.period}
-                    </p>
-                  </div>
-                  
-                  <p className="text-slate-600 dark:text-slate-400 mb-4">
-                    {exp.description}
-                  </p>
-                  
-                  {/* Technologies */}
-                  <div className="mb-4">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                      Technologies:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, idx) => (
-                        <span key={idx} className="px-3 py-1 text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-medium">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Highlights */}
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                      Key Achievements:
-                    </p>
-                    <ul className="space-y-1">
-                      {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
-                          <span className="text-blue-500 mt-1">•</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-zinc-100 dark:selection:bg-zinc-800">
+      <main className="max-w-7xl mx-auto px-4 pt-32 pb-40">
+        {/* Hero Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-32"
+        >
+          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12">
+            STORY <br />
+            <span className="text-zinc-400 dark:text-zinc-600">&</span> ETHOS<span className="text-blue-600">.</span>
+          </h1>
           
-          <div className="space-y-8 py-12 border-t border-slate-200 dark:border-slate-800">
-            <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
-              Education
-            </h2>
-            
-            <div className="space-y-6">
-              {educations.map((edu) => (
-                <div key={edu.id} className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                      {edu.degree}
-                    </h3>
-                    <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300">
-                      @ {edu.institution}
-                    </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                      {edu.period}
-                    </p>
-                  </div>
-                  
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {edu.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="space-y-6 pt-8 border-t border-slate-200 dark:border-slate-800">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-              Let's Work Together
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-              I'm always interested in hearing about challenging projects and opportunities to contribute 
-              to impactful solutions. Feel free to reach out if you'd like to collaborate!
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+            <p className="max-w-2xl text-xl md:text-3xl text-zinc-500 dark:text-zinc-400 leading-tight font-medium">
+              I am a Product Engineer who thrives at the intersection of <span className="text-zinc-950 dark:text-zinc-50">technical complexity</span> and <span className="text-zinc-950 dark:text-zinc-50">minimalist aesthetics</span>.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg">Get In Touch</Button>
-              <Button variant="outline" size="lg">
-                Read My Blog
-              </Button>
+          </div>
+        </motion.section>
+
+        {/* Biography Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+          <div className="lg:col-span-4">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">BIOGRAPHY</h2>
+          </div>
+          <div className="lg:col-span-8">
+            <div className="space-y-8 text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
+              <p>
+                I'm a software engineer with a deep-rooted passion for building scalable, high-performance systems. 
+                My journey began with a fascination for crafting seamless user interfaces, which eventually led me 
+                into the world of robust backend architectures and payment systems.
+              </p>
+              <p>
+                I believe that software is more than just code—it's a medium for solving real-world problems 
+                with elegance and precision. Whether it's optimizing a database query or refining a micro-interaction, 
+                I strive for excellence in every detail.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Gradient Background Elements */}
-      <div className="fixed top-20 -right-40 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-0 -left-40 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Experience Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+          <div className="lg:col-span-4">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">PROFESSIONAL EXPERIENCE</h2>
+          </div>
+          <div className="lg:col-span-8 space-y-24">
+            {experiences.map((exp, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="group"
+              >
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                  <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
+                    {exp.title}
+                  </h3>
+                  <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                    {exp.period}
+                  </span>
+                </div>
+                <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+                  {exp.company}
+                </p>
+                <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                  {exp.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+          <div className="lg:col-span-4">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">EDUCATION</h2>
+          </div>
+          <div className="lg:col-span-8 space-y-24">
+            {educations.map((edu, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="group"
+              >
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
+                  <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
+                    {edu.degree}
+                  </h3>
+                  <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                    {edu.period}
+                  </span>
+                </div>
+                <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+                  {edu.institution}
+                </p>
+                <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                  {edu.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Stack & CTA Section */}
+        <section className="border-t border-zinc-100 dark:border-zinc-900 pt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-4">
+              <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">CONTACT</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tight leading-none">
+                LET'S BUILD <br />
+                <span className="text-zinc-400">THE FUTURE</span>.
+              </h2>
+              
+              <div className="flex flex-wrap gap-4 mb-24">
+                <a 
+                  href="mailto:contact@zee.dev" 
+                  className="group flex items-center gap-3 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-full font-bold transition-all hover:scale-105 active:scale-95"
+                >
+                  <Mail size={20} /> Get in Touch
+                </a>
+                <button 
+                  className="group flex items-center gap-3 px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-full font-bold transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                >
+                  <Download size={20} /> Download CV
+                </button>
+              </div>
+
+              <div className="flex gap-12">
+                <Link href="/" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 font-bold transition-colors">HOME</Link>
+                <Link href="/blog" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 font-bold transition-colors">WRITING</Link>
+                <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 font-bold transition-colors">X / TWITTER</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

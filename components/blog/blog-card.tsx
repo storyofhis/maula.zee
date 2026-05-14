@@ -11,28 +11,28 @@ interface BlogCardProps {
 
 export function BlogCard({ title, description, date, readTime, tags, slug }: BlogCardProps) {
   return (
-    <Link href={`/blog/${slug}`} className="group flex flex-col justify-between h-full p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-slate-900/50 hover:-translate-y-1">
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-            {date}
-          </span>
-          <span className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            {readTime}
-          </span>
+    <Link href={`/blog/${slug}`} className="group block space-y-6 p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-950/5">
+      <div className="space-y-4">
+        <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400">
+          <span>{date}</span>
+          <span className="w-1 h-1 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+          <span>{readTime}</span>
+          <span className="w-1 h-1 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+          <span>1.2k views</span>
         </div>
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+        
+        <h3 className="text-2xl md:text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 group-hover:text-blue-600 transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-slate-300 text-sm line-clamp-3 mb-6">
+        
+        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2 text-lg">
           {description}
         </p>
       </div>
       
-      <div className="flex flex-wrap gap-2 mt-auto">
+      <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-100 dark:border-zinc-900">
         {tags.map((tag) => (
-          <span key={tag} className="px-2.5 py-1 text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full">
+          <span key={tag} className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 rounded-md group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 group-hover:text-white dark:group-hover:text-zinc-900 transition-all duration-300">
             {tag}
           </span>
         ))}

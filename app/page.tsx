@@ -1,191 +1,151 @@
-import Button from "@/components/button/button";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Globe, X, ExternalLink } from "lucide-react";
+
+const fadeUp = {
+  initial: { y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-zinc-100 dark:selection:bg-zinc-800">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 sm:pt-32 pb-20 sm:pb-32">
-        {/* Background Gradients */}
-        <div className="absolute top-0 -right-40 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-7xl mx-auto"
+          >
+            <div className="mb-8">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                Available for new projects
+              </span>
+            </div>
+  
+            <h1 className="text-6xl md:text-[10rem] font-black tracking-tight leading-[0.85] mb-12">
+              ENGINEER <br />
+              <span className="text-zinc-400 dark:text-zinc-600">&</span> RESEARCHER<span className="text-blue-600">.</span>
+            </h1>
+  
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+              <p className="max-w-xl text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
+                I build high-performance digital experiences at the intersection of <span className="text-zinc-900 dark:text-zinc-100">design architecture</span> and <span className="text-zinc-900 dark:text-zinc-100">system engineering</span>.
+              </p>
+  
+              <div className="flex gap-4">
+                <Link 
+                  href="/blog" 
+                  className="group flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-full font-bold transition-all hover:scale-105 active:scale-95"
+                >
+                  Read Blog <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  href="/about" 
+                  className="px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-full font-bold transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                >
+                  About Me
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+      </section>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8 text-center">
-            {/* Main Heading */}
-            <div className="space-y-6">
-              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight">
-                <span className="block text-slate-900 dark:text-white">
-                  Build Digital
-                </span>
-                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Experiences
-                </span>
-              </h1>
-
-              <p className="max-w-2xl mx-auto text-xl sm:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed">
-                I design and develop modern web applications that users love. With
-                expertise in React, Next.js, and modern design principles.
+      {/* Experience Section - Editorial Style */}
+      <section className="py-32 border-t border-zinc-100 dark:border-zinc-900">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-4">
+              <h2 className="text-4xl font-bold mb-6 tracking-tighter">SELECTED EXPERIENCE</h2>
+              <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">
+                A decade of crafting digital systems, from rapid prototypes to global infrastructure.
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
-              <Link href="/about">
-                <Button size="lg">Learn About Me</Button>
-              </Link>
-              <Link href="/blog">
-                <Button variant="outline" size="lg">
-                  Read My Blog
-                </Button>
-              </Link>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="pt-12 animate-bounce">
-              <svg
-                className="w-6 h-6 mx-auto text-slate-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
+            <div className="lg:col-span-8 space-y-24">
+              {[
+                {
+                  role: "Frontend Architect",
+                  company: "Design Research Hub",
+                  period: "2024 — Present",
+                  desc: "Leading the development of complex data visualization tools and design systems using React and Next.js."
+                },
+                {
+                  role: "Backend Engineer",
+                  company: "SystemScale",
+                  period: "2022 — 2024",
+                  desc: "Scaled payment infrastructures and microservices using Node.js, Docker, and NATS messaging systems."
+                }
+              ].map((exp, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="group relative"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold tracking-tight group-hover:text-blue-600 transition-colors">
+                      {exp.role} / {exp.company}
+                    </h3>
+                    <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                    {exp.desc}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              My Experience
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              Full-stack software engineer with expertise in frontend and backend development
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {/* Frontend Experience */}
-            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Frontend Development
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  First professional experience
-                </p>
-              </div>
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
-                Built modern, responsive web applications with a focus on performance and user experience.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Next.js", "React.js", "TypeScript", "JavaScript", "Tailwind CSS"].map((tech) => (
-                  <span key={tech} className="px-3 py-1 text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Backend Experience */}
-            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-slate-900/10 dark:hover:shadow-white/5 transition-all duration-300">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Backend & Infrastructure
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  Current focus
-                </p>
-              </div>
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
-                Specialized in building scalable backend systems including payment gateway integration, containerization with Docker, and microservices architecture using NATS.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Payment Gateways", "Docker", "NATS", "Node.js", "PostgreSQL", "Microservices"].map((tech) => (
-                  <span key={tech} className="px-3 py-1 text-xs bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center pt-8">
-            <Link href="/about">
-              <Button variant="outline">Learn More About My Experience</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects Section */}
-      <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              Latest Articles
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              Read my thoughts on web development and technology
-            </p>
-          </div>
-
-          <div className="text-center">
-            <Link href="/blog">
-              <Button variant="outline" size="lg">
-                View All Articles
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 sm:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            Let's Connect
+      {/* Blog Teaser Section */}
+      <section className="py-32 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tight">
+            DEEP <span className="text-zinc-400">THOUGHTS</span>.
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-            Interested in learning more about my experiences and work? Check out my blog and about page.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/about">
-              <Button size="lg">About Me</Button>
-            </Link>
-            <Link href="/blog">
-              <Button variant="secondary" size="lg">
-                Read My Blog
-              </Button>
-            </Link>
-          </div>
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center gap-4 text-2xl font-bold group"
+          >
+            View all articles 
+            <div className="w-12 h-12 rounded-full border border-zinc-900 dark:border-zinc-100 flex items-center justify-center group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 group-hover:text-white dark:group-hover:text-zinc-900 transition-all">
+              <ArrowRight size={24} />
+            </div>
+          </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-slate-600 dark:text-slate-400">
-            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 sm:mt-0">
-              <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                Twitter
-              </a>
-              <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                GitHub
-              </a>
-              <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                LinkedIn
-              </a>
+      <footer className="py-20 border-t border-zinc-100 dark:border-zinc-900 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div>
+              <p className="text-2xl font-bold tracking-tighter mb-2">ZEE.</p>
+              <p className="text-zinc-500 dark:text-zinc-400">&copy; 2026 Crafted with precision.</p>
+            </div>
+
+            <div className="flex gap-8">
+              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><X size={24} /></a>
+              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><Globe size={24} /></a>
+              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><ExternalLink size={24} /></a>
             </div>
           </div>
         </div>

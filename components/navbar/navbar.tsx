@@ -1,134 +1,110 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Toggle from "@/components/toggle/toggle";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/components/providers/theme-provider";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 type NavLink = {
     label: string;
     href: string;
 };
 
-type NavbarProps = {
-    logo?: string;
-    links?: NavLink[];
-    onLinkClick?: (href: string) => void;
-};
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
-const Navbar: React.FC<NavbarProps> = ({
-    logo = "Portfolio",
-    links = [
+    const links: NavLink[] = [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
         { label: "Blog", href: "/blog" },
-    ],
-    onLinkClick,
-}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const { theme, toggleTheme } = useTheme();
+    ];
 
-    const handleLinkClick = (href: string) => {
-        setIsOpen(false);
-        onLinkClick?.(href);
-    };
-
-    const handleThemeToggle = () => {
-        toggleTheme();
-    };
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="fixed top-0 w-full z-50">
-            {/* Backdrop blur effect */}
-            <div className="absolute inset-0 bg-white/30 dark:bg-slate-950/30 backdrop-blur-2xl border-b border-white/20 dark:border-slate-800/30" />
+        <nav className="fixed top-0 w-full z-50 px-4 py-6 flex justify-center pointer-events-none">
+            <motion.div
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={`
+                    pointer-events-auto
+                    flex items-center gap-4 px-6 py-3 rounded-full 
+                    transition-all duration-500 ease-in-out
+                    ${scrolled 
+                        ? "glass shadow-2xl shadow-zinc-950/10 dark:shadow-white/5 py-2 px-4" 
+                        : "bg-transparent"}
+                `}
+            >
+                {/* Logo */}
+                <Link href="/" className="text-xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 mr-4">
+                    ZEE<span className="text-zinc-400">.</span>
+                </Link>
 
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16 sm:h-20">
-                    {/* Logo */}
-                    <div className="flex-shrink-0">
+                {/* Desktop Links */}
+                <div className="hidden md:flex items-center gap-1">
+                    {links.map((link) => (
                         <Link
-                            href="/"
-                            className="text-2xl sm:text-3xl font-bold bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-slate-200 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-300"
+                            key={link.href}
+                            href={link.href}
+                            className="px-4 py-2 rounded-full text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300"
                         >
-                            {logo}
+                            {link.label}
                         </Link>
-                    </div>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {links.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => handleLinkClick(link.href)}
-                                className="px-4 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 transition-all duration-300 ease-out font-medium text-sm sm:text-base hover:text-slate-900 dark:hover:text-white"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        {/* Dark Mode Toggle */}
-                        {/* <Toggle
-                            checked={theme === "dark"}
-                            onChange={handleThemeToggle}
-                            size="md"
-                        /> */}
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
-                        aria-label="Toggle menu"
-                    >
-                        <svg
-                            className={`w-6 h-6 text-slate-700 dark:text-white transition-transform duration-300 ${
-                                isOpen ? "rotate-90" : ""
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d={
-                                    isOpen
-                                        ? "M6 18L18 6M6 6l12 12"
-                                        : "M4 6h16M4 12h16M4 18h16"
-                                }
-                            />
-                        </svg>
-                    </button>
+                    ))}
                 </div>
 
-                {/* Mobile Navigation Menu */}
+                <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 hidden md:block mx-2" />
+
+                {/* Theme Toggle */}
+                <button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
+                    aria-label="Toggle theme"
+                >
+                    {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
+                >
+                    {isOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
+            </motion.div>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
                 {isOpen && (
-                    <div className="md:hidden border-t border-white/20 dark:border-slate-800/30 mt-2 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
-                        <div className="bg-white/50 dark:bg-slate-950/50 backdrop-blur-2xl rounded-2xl m-2 p-2">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed inset-0 top-24 px-4 pointer-events-none md:hidden"
+                    >
+                        <div className="glass rounded-3xl p-6 pointer-events-auto space-y-4">
                             {links.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    onClick={() => handleLinkClick(link.href)}
-                                    className="block px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-white/10 transition-all duration-300 font-medium text-sm"
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 hover:text-zinc-500 transition-colors"
                                 >
                                     {link.label}
                                 </Link>
                             ))}
-                            {/* Dark Mode Toggle Mobile */}
-                            {/* <div className="px-4 py-3">
-                                <Toggle
-                                    checked={theme === "dark"}
-                                    onChange={handleThemeToggle}
-                                    size="md"
-                                    label="Dark Mode"
-                                />
-                            </div> */}
                         </div>
-                    </div>
+                    </motion.div>
                 )}
-            </div>
+            </AnimatePresence>
         </nav>
     );
 };
