@@ -38,7 +38,7 @@ const Navbar = () => {
             <motion.div
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className={`
                     pointer-events-auto
                     flex items-center gap-4 px-6 py-3 rounded-full 
