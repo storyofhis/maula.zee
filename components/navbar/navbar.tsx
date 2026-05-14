@@ -14,7 +14,12 @@ type NavLink = {
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const links: NavLink[] = [
         { label: "Home", href: "/" },
@@ -69,7 +74,7 @@ const Navbar = () => {
                     className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
                     aria-label="Toggle theme"
                 >
-                    {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                    {isMounted ? (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />) : <div className="w-[18px] h-[18px]" />}
                 </button>
 
                 {/* Mobile Menu Toggle */}
