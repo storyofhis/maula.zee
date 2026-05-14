@@ -1,23 +1,8 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Mail, Download } from "lucide-react";
-
-const fadeUp = {
-  initial: { y: 20, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-};
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
+import { Mail, Download } from "lucide-react";
+import AboutHero from "@/components/about/about-hero";
+import AboutExperience from "@/components/about/about-experience";
 
 export default function AboutPage() {
   const educations = [
@@ -59,24 +44,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-zinc-100 dark:selection:bg-zinc-800">
       <main className="max-w-7xl mx-auto px-4 pt-32 pb-40">
-        {/* Hero Section */}
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-32"
-        >
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12">
-            STORY <br />
-            <span className="text-zinc-400 dark:text-zinc-600">&</span> ETHOS<span className="text-blue-600">.</span>
-          </h1>
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
-            <p className="max-w-2xl text-xl md:text-3xl text-zinc-500 dark:text-zinc-400 leading-tight font-medium">
-              I am a Product Engineer who thrives at the intersection of <span className="text-zinc-950 dark:text-zinc-50">technical complexity</span> and <span className="text-zinc-950 dark:text-zinc-50">minimalist aesthetics</span>.
-            </p>
-          </div>
-        </motion.section>
+        <AboutHero />
 
         {/* Biography Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
@@ -99,73 +67,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Experience Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
-          <div className="lg:col-span-4">
-            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">PROFESSIONAL EXPERIENCE</h2>
-          </div>
-          <div className="lg:col-span-8 space-y-24">
-            {experiences.map((exp, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group"
-              >
-                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
-                  <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
-                    {exp.title}
-                  </h3>
-                  <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
-                  {exp.company}
-                </p>
-                <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
-                  {exp.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Education Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
-          <div className="lg:col-span-4">
-            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">EDUCATION</h2>
-          </div>
-          <div className="lg:col-span-8 space-y-24">
-            {educations.map((edu, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group"
-              >
-                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
-                  <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
-                    {edu.degree}
-                  </h3>
-                  <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
-                    {edu.period}
-                  </span>
-                </div>
-                <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
-                  {edu.institution}
-                </p>
-                <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
-                  {edu.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <AboutExperience experiences={experiences} educations={educations} />
 
         {/* Stack & CTA Section */}
         <section className="border-t border-zinc-100 dark:border-zinc-900 pt-32">
