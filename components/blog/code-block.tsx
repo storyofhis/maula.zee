@@ -65,11 +65,11 @@ export function CodeBlock({ children }: { children: ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="relative group my-6 bg-slate-900 dark:bg-slate-950 rounded-lg border border-slate-700 dark:border-slate-800 overflow-hidden"
+      className="relative group my-6 bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden"
     >
       <button
         onClick={onCopy}
-        className="absolute right-2 top-2 px-3 py-1.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-100 rounded opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center gap-1.5"
+        className="absolute right-3 top-3 px-2 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 flex items-center gap-1.5"
         aria-label="Copy code"
       >
         {copied ? (
@@ -100,7 +100,7 @@ export function CodeBlock({ children }: { children: ReactNode }) {
           </>
         )}
       </button>
-      <pre className="!m-0 !p-0 !bg-transparent overflow-x-auto">
+      <pre className="!m-0 !p-4 !bg-transparent overflow-x-auto">
         {children}
       </pre>
     </div>
