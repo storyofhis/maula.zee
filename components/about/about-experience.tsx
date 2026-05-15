@@ -7,6 +7,8 @@ interface Experience {
   company: string;
   period: string;
   desc: string;
+  technologies?: string[];
+  highlights?: string[];
 }
 
 interface Education {
@@ -31,7 +33,7 @@ export default function AboutExperience({ experiences, educations }: Props) {
         </div>
         <div className="lg:col-span-8 space-y-24">
           {experiences.map((exp, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -53,6 +55,18 @@ export default function AboutExperience({ experiences, educations }: Props) {
               <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
                 {exp.desc}
               </p>
+              <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed mt-4">
+                {exp.technologies?.map((tech, i) => (
+                  <span key={i} className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                    {tech} {i < exp.technologies!.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </p>
+              {exp.highlights?.map((highlight, i) => (
+                <div key={i} className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed mt-2">
+                  <span className="mr-2">•</span> {highlight}
+                </div>
+              ))}
             </motion.div>
           ))}
         </div>
@@ -65,7 +79,7 @@ export default function AboutExperience({ experiences, educations }: Props) {
         </div>
         <div className="lg:col-span-8 space-y-24">
           {educations.map((edu, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
