@@ -8,6 +8,7 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
 import { ArrowLeft, Clock, Calendar, Eye } from "lucide-react";
+import { ViewCounter } from "@/components/blog/view-counter";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -32,7 +33,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <div className="flex flex-wrap items-center gap-6 text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">
                         <span className="flex items-center gap-2"><Calendar size={14} /> {post.date}</span>
                         <span className="flex items-center gap-2"><Clock size={14} /> {post.readTime}</span>
-                        <span className="flex items-center gap-2"><Eye size={14} /> 1.2k views</span>
+                        {/* <span className="flex items-center gap-2"><Eye size={14} /> 1.2k views</span> */}
+                        <ViewCounter slug={slug} />
                     </div>
                     
                     <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 mb-10 leading-[0.95]">
