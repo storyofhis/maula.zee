@@ -7,8 +7,10 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
-import { ArrowLeft, Clock, Calendar, Eye } from "lucide-react";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { ViewCounter } from "@/components/blog/view-counter";
+import { LikeButton } from "@/components/blog/like-button";
+import { CommentSection } from "@/components/blog/comment-section";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -75,6 +77,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         {post.content}
                     </ReactMarkdown>
                 </div>
+
+                <LikeButton slug={slug} />
+                <CommentSection slug={slug} />
 
                 <footer className="mt-32 pt-16 border-t border-zinc-100 dark:border-zinc-900">
                     <div className="flex justify-between items-center">

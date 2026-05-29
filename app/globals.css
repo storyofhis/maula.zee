@@ -76,3 +76,10 @@ h1, h2, h3, h4, h5, h6 {
 .prose pre code {
   color: #d4d4d8 !important; /* zinc-300 */
 }
+
+/* highlight.js styling override to unify background colors */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
