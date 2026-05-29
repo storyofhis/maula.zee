@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "@/components/providers/theme-provider";
-import { Menu, X, Sun, Moon } from "lucide-react";
 
 type NavLink = {
     label: string;
@@ -14,12 +12,6 @@ type NavLink = {
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const { theme, toggleTheme } = useTheme();
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     const links: NavLink[] = [
         { label: "Home", href: "/" },
@@ -49,9 +41,9 @@ const Navbar = () => {
                 `}
             >
                 {/* Logo */}
-                <Link href="/" className="text-xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 mr-4">
+                {/* <Link href="/" className="text-xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 mr-4">
                     ZEE<span className="text-zinc-400">.</span>
-                </Link>
+                </Link> */}
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-1">
@@ -66,24 +58,24 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 hidden md:block mx-2" />
+                {/* <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 hidden md:block mx-2" /> */}
 
                 {/* Theme Toggle */}
-                <button
+                {/* <button
                     onClick={toggleTheme}
                     className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
                     aria-label="Toggle theme"
                 >
                     {isMounted ? (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />) : <div className="w-[18px] h-[18px]" />}
-                </button>
+                </button> */}
 
                 {/* Mobile Menu Toggle */}
-                <button
+                {/* <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400"
                 >
                     {isOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
+                </button> */}
             </motion.div>
 
             {/* Mobile Menu Overlay */}

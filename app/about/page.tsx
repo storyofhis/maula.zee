@@ -1,4 +1,5 @@
 import React from "react";
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import { Mail, Download } from "lucide-react";
 import AboutHero from "@/components/about/about-hero";

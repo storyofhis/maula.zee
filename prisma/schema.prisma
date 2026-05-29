@@ -14,6 +14,7 @@ datasource db {
 model PostView {
   slug      String   @id
   views     Int      @default(0)
+  likes     Int      @default(0) // Tracks total likes for a blog post
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
