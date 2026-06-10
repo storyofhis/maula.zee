@@ -24,7 +24,7 @@ export function CommentSection({ slug }: { slug: string }) {
                     category={process.env.NEXT_PUBLIC_GISCUS_CATEGORY || "General"}
                     categoryId={process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""}
                     mapping="pathname"
-                    reactionsEnabled="1"
+                    reactionsEnabled="0"
                     emitMetadata="0"
                     inputPosition="bottom"
                     theme={theme === "dark" ? "transparent_dark" : "light"}
