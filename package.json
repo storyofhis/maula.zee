@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "@tailwindcss/typography": "^0.5.19",
     "framer-motion": "^12.38.0",
     "fuse.js": "^7.3.0",
@@ -16,6 +19,8 @@
     "highlight.js": "^11.11.1",
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
+    "pg": "^8.20.0",
+    "prisma": "^7.8.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
@@ -26,6 +31,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
