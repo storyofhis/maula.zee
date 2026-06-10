@@ -3,12 +3,12 @@ import { BlogSearch } from "@/components/blog/blog-search";
 import { BlogHeader } from "@/components/blog/blog-header";
 
 export default function BlogPage() {
-    const posts = getAllPosts();
+  const posts = getAllPosts();
 
-    return (
-        <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 pt-32 pb-20 px-4">
-            <BlogHeader />
-            <BlogSearch posts={posts} />
-        </main>
-    );
+  return (
+    <main className="min-h-screen pt-16 pb-24 px-6 max-w-[1120px] mx-auto">
+      <BlogHeader />
+      <BlogSearch posts={posts} />
+    </main>
+  );
 }

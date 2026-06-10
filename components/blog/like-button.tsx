@@ -43,8 +43,9 @@ export function LikeButton({ slug }: { slug: string }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ count: delta }),
             });
+            if (!res.ok) throw new Error("API error");
             const data = await res.json();
-            setLikes(Number(data.likes) || 0);
+            setLikes(data.likes ?? likes);
         } catch (e) {
             // Revert optimistic update on error
             setLiked(!next);

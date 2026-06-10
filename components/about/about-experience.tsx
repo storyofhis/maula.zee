@@ -26,79 +26,95 @@ interface Props {
 export default function AboutExperience({ experiences, educations }: Props) {
   return (
     <>
-      {/* Experience Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+      {/* Experience */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
         <div className="lg:col-span-4">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">PROFESSIONAL EXPERIENCE</h2>
+          <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
+            Professional Experience
+          </p>
         </div>
-        <div className="lg:col-span-8 space-y-24">
+        <div className="lg:col-span-8 space-y-16">
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="group"
             >
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
-                <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 gap-2">
+                <h3 className="font-display text-display-md leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150">
                   {exp.title}
                 </h3>
-                <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                <span className="font-mono text-mono-sm text-ink-tertiary shrink-0">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+
+              <p className="text-body-sm font-medium text-ink-secondary dark:text-ink-tertiary mb-3">
                 {exp.company}
               </p>
-              <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
+
+              <p className="text-body-md text-ink-secondary dark:text-ink-tertiary max-w-2xl leading-relaxed mb-4">
                 {exp.desc}
               </p>
-              <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed mt-4">
-                {exp.technologies?.map((tech, i) => (
-                  <span key={i} className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
-                    {tech} {i < exp.technologies!.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </p>
-              {exp.highlights?.map((highlight, i) => (
-                <div key={i} className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed mt-2">
-                  <span className="mr-2">•</span> {highlight}
+
+              {exp.technologies && exp.technologies.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-mono-sm text-ink-secondary dark:text-ink-tertiary bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong px-2.5 py-1 rounded-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
+              )}
+
+              {exp.highlights?.map((highlight, j) => (
+                <p key={j} className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed flex gap-2">
+                  <span className="text-accent dark:text-accent-dark mt-px">↗</span>
+                  {highlight}
+                </p>
               ))}
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
+      {/* Education */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
         <div className="lg:col-span-4">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8">EDUCATION</h2>
+          <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
+            Education
+          </p>
         </div>
-        <div className="lg:col-span-8 space-y-24">
+        <div className="lg:col-span-8 space-y-16">
           {educations.map((edu, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="group"
             >
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4">
-                <h3 className="text-3xl font-black tracking-tight group-hover:text-blue-600 transition-colors">
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 gap-2">
+                <h3 className="font-display text-display-md leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150">
                   {edu.degree}
                 </h3>
-                <span className="text-zinc-400 font-mono text-sm uppercase tracking-widest">
+                <span className="font-mono text-mono-sm text-ink-tertiary shrink-0">
                   {edu.period}
                 </span>
               </div>
-              <p className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+
+              <p className="text-body-sm font-medium text-ink-secondary dark:text-ink-tertiary mb-3">
                 {edu.institution}
               </p>
-              <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
+
+              <p className="text-body-md text-ink-secondary dark:text-ink-tertiary max-w-2xl leading-relaxed">
                 {edu.description}
               </p>
             </motion.div>

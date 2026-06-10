@@ -4,22 +4,26 @@ import { motion } from "framer-motion";
 
 export default function AboutHero() {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 15 }}
+    <motion.section
+      initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="mb-32"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="mb-24"
     >
-      <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12">
-        STORY <br />
-        <span className="text-zinc-400 dark:text-zinc-600">&</span> ETHOS<span className="text-blue-600">.</span>
+      <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
+        Story &amp; Ethos
+      </p>
+
+      <h1 className="font-display text-display-xl leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-8 text-balance max-w-[720px]">
+        A Product Engineer who thrives where{" "}
+        <span className="text-accent dark:text-accent-dark italic">technical complexity</span>{" "}
+        meets minimalist aesthetics.
       </h1>
-      
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
-        <p className="max-w-2xl text-xl md:text-3xl text-zinc-500 dark:text-zinc-400 leading-tight font-medium">
-          I am a Product Engineer who thrives at the intersection of <span className="text-zinc-950 dark:text-zinc-50">technical complexity</span> and <span className="text-zinc-950 dark:text-zinc-50">minimalist aesthetics</span>.
-        </p>
-      </div>
+
+      <p className="text-body-lg text-ink-secondary dark:text-ink-tertiary max-w-[560px] leading-relaxed">
+        I believe the best interfaces are the ones users never have to think about —
+        where every interaction feels inevitable in hindsight.
+      </p>
     </motion.section>
   );
 }

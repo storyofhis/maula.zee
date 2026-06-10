@@ -1,45 +1,109 @@
-import Link from "next/link";
-import { ArrowRight, Globe, X, ExternalLink } from "lucide-react";
+import { Globe, ExternalLink, Mail } from "lucide-react";
 import HomeHero from "@/components/home/home-hero";
-import HomeExperience from "@/components/home/home-experience";
+import AboutExperience from "@/components/about/about-experience";
+
+const educations = [
+  {
+    institution: "Institut Teknologi Sepuluh Nopember (ITS)",
+    degree: "Bachelor of Computer Science",
+    period: "2020 – 2024",
+    description:
+      "Focused on software engineering, algorithms, and system design. Graduated with honors and completed a thesis on scalable web applications.",
+  },
+  {
+    institution: "Apple Developer Academy @ BINUS, Tangerang",
+    degree: "Apple Certified Product Engineer",
+    period: "March 2026 – Present",
+    description:
+      "Intensive program covering iOS development, Swift, UI/UX design, and app deployment. Currently building a capstone social networking app for local communities.",
+  },
+];
+
+const experiences = [
+  {
+    title: "Software Engineer",
+    company: "Bayarind Artha Internusa",
+    period: "Oct 2024 – Feb 2026",
+    desc: "Specialized in backend development including payment gateway integration and microservices. Developed SNAP-standard payment services using Go, NATS, and PostgreSQL.",
+    technologies: ["Go", "NATS", "PostgreSQL", "Redis", "gRPC", "ElasticSearch"],
+    highlights: [
+      "Built payment gateway integrated with Faspay using SNAP API standardization",
+      "Created messaging listener system to track transactions via NATS + ElasticSearch",
+      "Maintained authentication service with gRPC-based encrypted communication",
+      "Migrated payment integration codebase from PHP to Go",
+    ],
+  },
+  {
+    title: "Frontend Software Engineer",
+    company: "Dinas Pendidikan Kota Surabaya",
+    period: "Jan 2022 – Jul 2023",
+    desc: "Built modern web applications with a focus on performance using React, Next.js, TypeScript, and Redux.",
+    technologies: ["React", "Next.js", "TypeScript", "Redux"],
+    highlights: [
+      "Developed responsive web applications across multiple projects",
+      "Managed design systems and resolved frontend bugs",
+      "Collaborated with design and backend teams on large-scale software",
+    ],
+  },
+  {
+    title: "Backend Engineer Intern",
+    company: "Lingotalk",
+    period: "Oct 2022 – Dec 2022",
+    desc: "Focused on backend development and system design for high-performance applications using Node.js and FaunaDB.",
+    technologies: ["Node.js", "TypeScript", "FaunaDB", "Docker"],
+    highlights: [
+      "Built gamification service APIs and deployment tooling",
+      "Designed scalable microservices architecture",
+      "Diagnosed and resolved backend bugs to optimize code efficiency",
+    ],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-zinc-100 dark:selection:bg-zinc-800">
-      <HomeHero />
-      <HomeExperience />
+    <div className="min-h-screen flex flex-col">
+      <div className="max-w-[1120px] mx-auto px-6 w-full flex-1">
+        <HomeHero />
 
-      {/* Blog Teaser Section */}
-      <section className="py-32 bg-zinc-50 dark:bg-zinc-900/50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tight">
-            DEEP <span className="text-zinc-400">THOUGHTS</span>.
-          </h2>
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center gap-4 text-2xl font-bold group"
-          >
-            View all articles 
-            <div className="w-12 h-12 rounded-full border border-zinc-900 dark:border-zinc-100 flex items-center justify-center group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 group-hover:text-white dark:group-hover:text-zinc-900 transition-all">
-              <ArrowRight size={24} />
-            </div>
-          </Link>
+        <div className="border-t border-border-subtle dark:border-border-strong pt-24 pb-32">
+          <AboutExperience experiences={experiences} educations={educations} />
         </div>
-      </section>
+      </div>
 
-      {/* Footer */}
-      <footer className="py-20 border-t border-zinc-100 dark:border-zinc-900 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+      <footer className="border-t border-border-subtle dark:border-border-strong py-16">
+        <div className="max-w-[1120px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div>
-              <p className="text-2xl font-bold tracking-tighter mb-2">ZEE.</p>
-              <p className="text-zinc-500 dark:text-zinc-400">&copy; 2026 Crafted with precision.</p>
+              <p className="font-mono text-mono-sm font-medium text-ink-primary dark:text-ink-inverse mb-1">
+                zee.dev
+              </p>
+              <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary">
+                &copy; 2026 — Crafted with precision.
+              </p>
             </div>
 
-            <div className="flex gap-8">
-              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><X size={24} /></a>
-              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><Globe size={24} /></a>
-              <a href="#" className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"><ExternalLink size={24} /></a>
+            <div className="flex gap-4">
+              <a
+                href="mailto:azizi.maula@gmail.com"
+                aria-label="Email"
+                className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+              >
+                <Mail size={18} />
+              </a>
+              <a
+                href="#"
+                aria-label="Portfolio"
+                className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+              >
+                <Globe size={18} />
+              </a>
+              <a
+                href="#"
+                aria-label="External"
+                className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+              >
+                <ExternalLink size={18} />
+              </a>
             </div>
           </div>
         </div>

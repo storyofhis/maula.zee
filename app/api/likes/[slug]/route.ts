@@ -35,10 +35,8 @@ export async function POST(
 
         try {
             const body = await req.json();
-            if (typeof body.count === "number") {
-                // Clamp count between 1 and 10 per request to prevent spamming
-                count = Math.min(Math.max(body.count, 1), 10);
-            }
+            // Allow +1 (like) or -1 (unlike) only
+            if (body.count === -1) count = -1;
         } catch (e) {
             // Fallback to default count of 1
         }
@@ -52,13 +50,20 @@ export async function POST(
             },
             create: {
                 slug,
-                likes: count,
+                likes: Math.max(0, count),
             },
         });
 
-        return NextResponse.json({
-            likes: post.likes,
-        });
+        const likes = Math.max(0, post.likes);
+
+        if (post.likes < 0) {
+            await prisma.postView.update({
+                where: { slug },
+                data: { likes: 0 },
+            });
+        }
+
+        return NextResponse.json({ likes });
     } catch (error: any) {
         console.error("POST likes error:", error);
         return NextResponse.json({
