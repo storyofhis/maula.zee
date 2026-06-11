@@ -27,13 +27,13 @@ export default function AboutExperience({ experiences, educations }: Props) {
   return (
     <>
       {/* Experience */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
         <div className="lg:col-span-4">
           <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
             Professional Experience
           </p>
         </div>
-        <div className="lg:col-span-8 space-y-16">
+        <div className="lg:col-span-8 space-y-10 md:space-y-16">
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
@@ -85,13 +85,13 @@ export default function AboutExperience({ experiences, educations }: Props) {
       </section>
 
       {/* Education */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
         <div className="lg:col-span-4">
           <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
             Education
           </p>
         </div>
-        <div className="lg:col-span-8 space-y-16">
+        <div className="lg:col-span-8 space-y-10 md:space-y-16">
           {educations.map((edu, i) => (
             <motion.div
               key={i}

@@ -1,15 +1,21 @@
 import Link from "next/link";
-import { Mail, Download } from "lucide-react";
+import { Mail, Download, ArrowRight } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/social-icons";
 import AboutHero from "@/components/about/about-hero";
+import { getAllPosts } from "@/lib/blog-data";
 
 export default function AboutPage() {
+  const retrospectivePosts = getAllPosts().filter((p) =>
+    p.tags.includes("Retrospective")
+  );
+
   return (
     <div className="min-h-screen">
       <main className="max-w-[1120px] mx-auto px-6 pt-16 pb-32">
         <AboutHero />
 
         {/* Biography */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
           <div className="lg:col-span-4">
             <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
               Biography
@@ -29,9 +35,57 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Notes / Retrospectives */}
+        {retrospectivePosts.length > 0 && (
+          <section className="border-t border-border-subtle dark:border-border-strong pt-12 md:pt-24 mb-16 md:mb-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+              <div className="lg:col-span-4">
+                <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
+                  Notes
+                </p>
+              </div>
+              <div className="lg:col-span-8 space-y-4">
+                {retrospectivePosts.map((post) => {
+                  const year = post.date.split(" ").at(-1) ?? post.date.slice(-4);
+                  return (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      className="group flex items-start gap-6 bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong rounded-lg px-6 py-6 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-150 ease-out"
+                    >
+                      <div className="hidden sm:flex flex-col justify-center min-w-[52px]">
+                        <span className="font-display text-display-lg font-black tracking-tighter text-border-default dark:text-border-strong group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 leading-none">
+                          {year}
+                        </span>
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="font-mono text-mono-sm text-ink-tertiary mb-2">
+                          {post.readTime}
+                        </div>
+                        <h3 className="font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-1.5">
+                          {post.title}
+                        </h3>
+                        <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed line-clamp-2">
+                          {post.description}
+                        </p>
+                      </div>
+
+                      <ArrowRight
+                        size={16}
+                        className="mt-1 shrink-0 text-ink-tertiary group-hover:text-accent dark:group-hover:text-accent-dark group-hover:translate-x-1 transition-all duration-150"
+                      />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Contact */}
-        <section className="border-t border-border-subtle dark:border-border-strong pt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <section className="border-t border-border-subtle dark:border-border-strong pt-12 md:pt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
                 Contact
@@ -55,7 +109,7 @@ export default function AboutPage() {
                 </button>
               </div>
 
-              <div className="flex gap-8">
+              <div className="flex items-center gap-8">
                 <Link
                   href="/"
                   className="font-mono text-mono-sm text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
@@ -68,6 +122,25 @@ export default function AboutPage() {
                 >
                   Writing
                 </Link>
+                <div className="h-4 w-px bg-border-default dark:bg-border-strong" />
+                <a
+                  href="https://github.com/storyofhis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+                >
+                  <GitHubIcon size={16} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/mauladev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+                >
+                  <LinkedInIcon size={16} />
+                </a>
               </div>
             </div>
           </div>

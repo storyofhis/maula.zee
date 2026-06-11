@@ -1,4 +1,4 @@
-import { Globe, ExternalLink, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import HomeHero from "@/components/home/home-hero";
 import AboutExperience from "@/components/about/about-experience";
 
@@ -20,6 +20,19 @@ const educations = [
 ];
 
 const experiences = [
+  {
+    title: "iOS Product Engineer",
+    company: "Apple Developer Academy @ BINUS",
+    period: "Mar 2026 – Present",
+    desc: "Shifted focus from backend systems to product engineering on Apple platforms — building iOS apps from concept to App Store. Deep dive into Swift, SwiftUI, and Apple's Human Interface Guidelines.",
+    technologies: ["Swift", "SwiftUI", "Xcode", "Foundation Models", "UIKit"],
+    highlights: [
+      "Building a capstone social networking app for local communities on iOS",
+      "Studying Apple Foundation Models framework for on-device AI integration",
+      "Practicing full product cycle: ideation, design system, implementation, and user testing",
+      "Applying HIG principles and Apple design language across all projects",
+    ],
+  },
   {
     title: "Software Engineer",
     company: "Bayarind Artha Internusa",
@@ -65,7 +78,7 @@ export default function Home() {
       <div className="max-w-[1120px] mx-auto px-6 w-full flex-1">
         <HomeHero />
 
-        <div className="border-t border-border-subtle dark:border-border-strong pt-24 pb-32">
+        <div className="pt-12 md:pt-24 pb-16 md:pb-32">
           <AboutExperience experiences={experiences} educations={educations} />
         </div>
       </div>
@@ -89,20 +102,6 @@ export default function Home() {
                 className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
               >
                 <Mail size={18} />
-              </a>
-              <a
-                href="#"
-                aria-label="Portfolio"
-                className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
-              >
-                <Globe size={18} />
-              </a>
-              <a
-                href="#"
-                aria-label="External"
-                className="p-2 text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
-              >
-                <ExternalLink size={18} />
               </a>
             </div>
           </div>

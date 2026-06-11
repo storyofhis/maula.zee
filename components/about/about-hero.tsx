@@ -8,13 +8,13 @@ export default function AboutHero() {
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mb-24"
+      className="mb-12 md:mb-24"
     >
       <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
         Story &amp; Ethos
       </p>
 
-      <h1 className="font-display text-display-xl leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-8 text-balance max-w-[720px]">
+      <h1 className="font-display text-display-xl leading-[1.15] md:leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-6 md:mb-8 text-balance max-w-[720px]">
         A Product Engineer who thrives where{" "}
         <span className="text-accent dark:text-accent-dark italic">technical complexity</span>{" "}
         meets minimalist aesthetics.
