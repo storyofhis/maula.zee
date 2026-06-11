@@ -12,6 +12,7 @@ export interface Project {
   status: "Live" | "WIP" | "Archived";
   url?: string;
   github?: string;
+  slug?: string;
 }
 
 const statusColors: Record<Project["status"], string> = {

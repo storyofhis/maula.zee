@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { GitHubIcon } from "@/components/icons/social-icons";
 import type { Project } from "@/components/home/projects-section";
 
@@ -14,6 +15,7 @@ const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
     github: "https://github.com/storyofhis/portfolio",
     url: "#",
+    slug: "zee-dev",
   },
   {
     name: "iOS Social App",
@@ -28,6 +30,7 @@ const projects: Project[] = [
     year: "2025",
     status: "Archived",
     tags: ["Go", "NATS", "PostgreSQL", "gRPC"],
+    slug: "snap-payment-gateway",
   },
   {
     name: "Gamification Service",
@@ -35,6 +38,7 @@ const projects: Project[] = [
     year: "2022",
     status: "Archived",
     tags: ["Node.js", "TypeScript", "FaunaDB", "Docker"],
+    slug: "gamification-service",
   },
 ];
 
@@ -109,7 +113,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Links */}
-            {(project.url || project.github) && (
+            {(project.url || project.github || project.slug) && (
               <div className="flex items-center gap-3 pt-3 border-t border-border-subtle dark:border-border-strong">
                 {project.github && (
                   <a
@@ -132,6 +136,15 @@ export default function ProjectsPage() {
                   >
                     <ExternalLink size={14} />
                   </a>
+                )}
+                {project.slug && (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="ml-auto inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
+                  >
+                    Case study
+                    <ArrowRight size={11} />
+                  </Link>
                 )}
               </div>
             )}

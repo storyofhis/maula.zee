@@ -3,7 +3,7 @@ title: "Please Foundation Models, Do Your Magic"
 description: "A practical guide to Apple's on-device Foundation Models framework — from your first LanguageModelSession to structured outputs with @Generable."
 date: "April 27, 2026"
 readTime: "6 min read"
-tags: ["iOS", "Swift", "AI", "Foundation Models", "Apple"]
+tags: ["Swift", "Artificial Intelligence", "Apple"]
 ---
 
 Apple's on-device AI story just became something worth paying attention to. Foundation Models isn't another cloud wrapper — it runs locally, respects privacy by default, and exposes a Swift API that feels like it belongs in UIKit. This is what it looks like to actually build with it.
