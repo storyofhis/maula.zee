@@ -3,7 +3,7 @@ title: "System Design: Start Beginner"
 description: "Most engineers can draw a Twitter architecture diagram. Ask them to design the schema for posts, likes, and reactions — they freeze. Here's the right order to learn system design."
 date: "May 15, 2026"
 readTime: "10 min read"
-tags: ["System Design", "Backend", "Architecture", "Beginner"]
+tags: ["System Design", "Software Engineer", "Architecture"]
 ---
 
 Did you ever think about how a system handles 1 million users? Most engineers jump straight to "design Twitter for 1B users" before understanding what a primary key is. That's the wrong starting point.
