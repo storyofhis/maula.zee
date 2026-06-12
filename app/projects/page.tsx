@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { GitHubIcon } from "@/components/icons/social-icons";
+import { PageHeader } from "@/components/molecules/page-header";
+import { StatusBadge } from "@/components/atoms/status-badge";
+import { TechTag } from "@/components/atoms/tech-tag";
 import type { Project } from "@/components/home/projects-section";
 
 const projects: Project[] = [
@@ -40,37 +43,27 @@ const projects: Project[] = [
     tags: ["Node.js", "TypeScript", "FaunaDB", "Docker"],
     slug: "gamification-service",
   },
+  {
+    name: "CapyRun Apple Challenge 2",
+    description: "Endless runner iOS game built for the Apple Challenge 2. Features procedurally generated levels and Game Center integration.",
+    year: "2024",
+    status: "Live",
+    tags: ["Swift", "SpriteKit", "Game Center"],
+    url: "https://apps.apple.com/app/id6445678901",
+    slug: "capyrun-apple-challenge-2",
+  },
 ];
-
-const statusColors: Record<Project["status"], string> = {
-  Live:     "bg-accent/10 text-accent dark:bg-accent-dark/10 dark:text-accent-dark",
-  WIP:      "bg-warning/10 text-warning",
-  Archived: "bg-bg-secondary dark:bg-bg-dark-muted text-ink-tertiary border border-border-subtle dark:border-border-strong",
-};
 
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen pt-16 pb-24 px-6 max-w-[1120px] mx-auto">
+      <PageHeader
+        eyebrow="Projects"
+        heading="Things I've built."
+        body="A mix of professional work, side projects, and open-source experiments — from backend infrastructure to iOS apps."
+        headingWidth="max-w-[560px]"
+      />
 
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-16"
-      >
-        <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
-          Projects
-        </p>
-        <h1 className="font-display text-display-xl leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-6 text-balance max-w-[640px]">
-          Things I've built.
-        </h1>
-        <p className="text-body-lg text-ink-secondary dark:text-ink-tertiary max-w-[480px] leading-relaxed">
-          A mix of professional work, side projects, and open-source experiments — from backend infrastructure to iOS apps.
-        </p>
-      </motion.div>
-
-      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project, i) => (
           <motion.div
@@ -80,39 +73,27 @@ export default function ProjectsPage() {
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 + i * 0.06 }}
             className="group flex flex-col bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong rounded-lg p-5 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-150 ease-out"
           >
-            {/* Top row */}
             <div className="flex items-center justify-between mb-4">
               <span className="font-mono text-mono-sm text-ink-tertiary">
                 {project.year}
               </span>
-              <span className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full ${statusColors[project.status]}`}>
-                {project.status}
-              </span>
+              <StatusBadge status={project.status} />
             </div>
 
-            {/* Name */}
             <h2 className="font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-2">
               {project.name}
             </h2>
 
-            {/* Description */}
             <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed flex-1 mb-4">
               {project.description}
             </p>
 
-            {/* Tech tags */}
             <div className="flex flex-wrap gap-1.5 mb-4">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono text-[10px] uppercase tracking-wide text-ink-tertiary bg-bg-primary dark:bg-bg-dark border border-border-subtle dark:border-border-strong px-2 py-0.5 rounded-sm"
-                >
-                  {tag}
-                </span>
+                <TechTag key={tag}>{tag}</TechTag>
               ))}
             </div>
 
-            {/* Links */}
             {(project.url || project.github || project.slug) && (
               <div className="flex items-center gap-3 pt-3 border-t border-border-subtle dark:border-border-strong">
                 {project.github && (

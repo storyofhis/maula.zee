@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/social-icons";
+import { StatusBadge } from "@/components/atoms/status-badge";
+import { TechTag } from "@/components/atoms/tech-tag";
 
 export interface Project {
   name: string;
@@ -15,11 +17,6 @@ export interface Project {
   slug?: string;
 }
 
-const statusColors: Record<Project["status"], string> = {
-  Live:     "bg-accent/10 text-accent dark:bg-accent-dark/10 dark:text-accent-dark",
-  WIP:      "bg-warning/10 text-warning",
-  Archived: "bg-bg-secondary dark:bg-bg-dark-muted text-ink-tertiary",
-};
 
 interface Props {
   projects: Project[];
@@ -50,9 +47,7 @@ export default function ProjectsSection({ projects }: Props) {
                 <span className="font-mono text-mono-sm text-ink-tertiary">
                   {project.year}
                 </span>
-                <span className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full ${statusColors[project.status]}`}>
-                  {project.status}
-                </span>
+                <StatusBadge status={project.status} />
               </div>
 
               {/* Name */}
@@ -68,12 +63,7 @@ export default function ProjectsSection({ projects }: Props) {
               {/* Tech tags */}
               <div className="flex flex-wrap gap-1.5 mb-4">
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[10px] uppercase tracking-wide text-ink-tertiary bg-bg-primary dark:bg-bg-dark border border-border-subtle dark:border-border-strong px-2 py-0.5 rounded-sm"
-                  >
-                    {tag}
-                  </span>
+                  <TechTag key={tag}>{tag}</TechTag>
                 ))}
               </div>
 

@@ -65,11 +65,11 @@ export function CodeBlock({ children }: { children: ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="relative group my-6 bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden"
+      className="relative group my-6 bg-bg-dark rounded-lg border border-border-strong/30 overflow-hidden"
     >
       <button
         onClick={onCopy}
-        className="absolute right-3 top-3 px-2 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 flex items-center gap-1.5"
+        className="absolute right-3 top-3 flex items-center gap-1.5 px-2.5 py-1.5 font-mono text-mono-sm rounded-md bg-bg-dark-muted text-ink-tertiary border border-border-strong/40 hover:text-ink-inverse hover:border-border-strong opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-150 z-20"
         aria-label="Copy code"
       >
         {copied ? (
