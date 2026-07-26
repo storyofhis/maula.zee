@@ -6,6 +6,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
+import { ValuePropositionCanvasDiagram } from "@/components/blog/value-proposition-canvas-diagram";
 import { Clock, Calendar } from "lucide-react";
 import { ViewCounter } from "@/components/blog/view-counter";
 import { LikeButton } from "@/components/blog/like-button";
@@ -89,6 +90,8 @@ export default async function BlogPostPage({
               pre({ children }) {
                 return <CodeBlock>{children}</CodeBlock>;
               },
+              // @ts-expect-error -- custom tag emitted by rehype-raw, not a standard HTML element
+              "value-proposition-canvas": () => <ValuePropositionCanvasDiagram />,
               a: ({ href, children }) => (
                 <a
                   href={href}

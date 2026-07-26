@@ -1,5 +1,5 @@
 ---
-title: "CapyRun Apple Challenge 2"
+title: "CapyRun - Apple Challenge 2"
 tagline: ""
 tags: ["SwiftUI", "Swift"]
 year: "2026"

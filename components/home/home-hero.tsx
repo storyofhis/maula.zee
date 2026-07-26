@@ -5,15 +5,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { AvailabilityBadge } from "@/components/home/availability-badge";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/social-icons";
+import HeroScene from "@/components/home/hero-scene";
 
 export default function HomeHero() {
   return (
     <section className="pt-16 pb-12 md:pt-32 md:pb-24">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="max-w-[720px]"
+        className="max-w-[580px]"
       >
         <AvailabilityBadge />
 
@@ -76,6 +78,8 @@ export default function HomeHero() {
           </a>
         </div>
       </motion.div>
+      <HeroScene />
+      </div>
     </section>
   );
 }

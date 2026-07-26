@@ -21,13 +21,6 @@ const projects: Project[] = [
     slug: "zee-dev",
   },
   {
-    name: "iOS Social App",
-    description: "Capstone social networking app for local communities, built at Apple Developer Academy. On-device AI via Foundation Models.",
-    year: "2026",
-    status: "WIP",
-    tags: ["Swift", "SwiftUI", "Foundation Models"],
-  },
-  {
     name: "SNAP Payment Gateway",
     description: "SNAP-standard payment service integrated with Faspay. Includes transaction tracking via NATS messaging and ElasticSearch.",
     year: "2025",
@@ -46,11 +39,39 @@ const projects: Project[] = [
   {
     name: "CapyRun Apple Challenge 2",
     description: "Endless runner iOS game built for the Apple Challenge 2. Features procedurally generated levels and Game Center integration.",
-    year: "2024",
-    status: "Live",
+    year: "2026",
+    status: "Archived",
     tags: ["Swift", "SpriteKit", "Game Center"],
-    url: "https://apps.apple.com/app/id6445678901",
+    github: "https://github.com/storyofhis/caprince",
     slug: "capyrun-apple-challenge-2",
+  },
+  {
+    name: "Presently Apple Challenge 1",
+    description: "Endless runner iOS game built for the Apple Challenge 1. Features procedurally generated levels and Game Center integration.",
+    year: "2026",
+    status: "Archived",
+    tags: ["Swift", "SpriteKit", "Game Center"],
+    url: "#",
+    slug: "presently-apple-challenge-1",
+  },
+  {
+    name: "PayRun Apple Design Challenge 3",
+    description: "Endless runner iOS game built for the Apple Challenge 2. Features procedurally generated levels and Game Center integration.",
+    year: "2026",
+    status: "Archived",
+    tags: ["Swift", "SpriteKit", "Game Center"],
+    url: "#",
+    slug: "",
+  },
+  {
+    name: "Scouters",
+    description: "Apps for parents monitoring their children's activities. Features a dashboard for parents and a companion app for children.",
+    year: "2026",
+    status: "Archived",
+    challenge: "Urban Living Experience",
+    tags: ["Swift"],
+    url: "#",
+    slug: "scouters-apple-challenge-4",
   },
 ];
 
@@ -83,6 +104,10 @@ export default function ProjectsPage() {
             <h2 className="font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-2">
               {project.name}
             </h2>
+
+            <h3 className="font-display text-display-xs leading-snug tracking-tight text-ink-secondary dark:text-ink-tertiary group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-2">
+              Challenge: {project.challenge}
+            </h3>
 
             <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed flex-1 mb-4">
               {project.description}

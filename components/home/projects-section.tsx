@@ -15,6 +15,7 @@ export interface Project {
   url?: string;
   github?: string;
   slug?: string;
+  challenge?: string;
 }
 
 
