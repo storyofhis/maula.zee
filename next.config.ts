@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import os from "os";
+import path from "path";
 
 /**
  * Automatically detects local network IP addresses (IPv4)
@@ -26,6 +27,9 @@ const getNetworkIPs = () => {
 const nextConfig: NextConfig = {
   /* config options here */
   allowedDevOrigins: getNetworkIPs(),
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
 };
 
 export default nextConfig;
