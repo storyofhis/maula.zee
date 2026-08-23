@@ -22,7 +22,7 @@ const educations = [
 const experiences = [
   {
     title: "iOS Product Engineer",
-    company: "Apple Developer Academy @ BINUS",
+    company: "Apple Developer Academy @ BINUS, Tangerang",
     period: "Mar 2026 – Present",
     desc: "Shifted focus from backend systems to product engineering on Apple platforms — building iOS apps from concept to App Store. Deep dive into Swift, SwiftUI, and Apple's Human Interface Guidelines.",
     technologies: ["Swift", "SwiftUI", "Xcode", "Foundation Models", "UIKit"],

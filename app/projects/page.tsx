@@ -37,7 +37,7 @@ const projects: Project[] = [
     slug: "gamification-service",
   },
   {
-    name: "CapyRun Apple Challenge 2",
+    name: "CapyRun",
     description: "Endless runner iOS game built for the Apple Challenge 2. Features procedurally generated levels and Game Center integration.",
     year: "2026",
     status: "Archived",
@@ -46,7 +46,7 @@ const projects: Project[] = [
     slug: "capyrun-apple-challenge-2",
   },
   {
-    name: "Presently Apple Challenge 1",
+    name: "Presently",
     description: "Endless runner iOS game built for the Apple Challenge 1. Features procedurally generated levels and Game Center integration.",
     year: "2026",
     status: "Archived",
@@ -55,7 +55,7 @@ const projects: Project[] = [
     slug: "presently-apple-challenge-1",
   },
   {
-    name: "PayRun Apple Design Challenge 3",
+    name: "PayRun",
     description: "Endless runner iOS game built for the Apple Challenge 2. Features procedurally generated levels and Game Center integration.",
     year: "2026",
     status: "Archived",
@@ -72,6 +72,17 @@ const projects: Project[] = [
     tags: ["Swift"],
     url: "#",
     slug: "scouters-apple-challenge-4",
+  },
+  {
+    name: "SonAR",
+    description: "An AR overlay that makes an invisible ultrasonic echo visible, so a robotics student can see why the robot decided to stop — not just that it did.",
+    year: "2026",
+    status: "Archived",
+    challenge: "Emerging Tech",
+    tags: ["SwiftUI", "Swift", "ARKit", "RealityKit", "Vision", "CoreML"],
+    github: "https://github.com/storyofhis/refactor-ECS",
+    url: "#",
+    slug: "sonar-apple-challenge-5",
   },
 ];
 
