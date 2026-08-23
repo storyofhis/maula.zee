@@ -3,7 +3,7 @@ title: "Kubernetes Mastering Guide - Part 2"
 description: "Continue from part 1 - to practical guide to mastering your jurney of understanding kubernetes"
 date: "July 25, 2026"
 readTime: "30 min read"
-tags: ["engineer"]
+tags: ["engineering"]
 ---
 
 **Have You Try this Game [Link](https://github.com/Manoj-engineer/k8squest/tree/main)?**

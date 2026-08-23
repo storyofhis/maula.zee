@@ -117,3 +117,88 @@ what are my struggles? what am I trying to avoid?
 - Afraid their child might fall in with the wrong crowd.
 - Worried that if they have to look after their child, they won't be able to keep up with their work.
 - Their child rarely checks in once they're having fun while out and about.
+
+## The Problem
+
+Mama Zizi wants her child to have a childhood that includes Scientia Park and TMII on his own terms — not always trailing an adult. Today that isn't a real option. Indonesian public spaces aren't built with a child's safety in mind: no reliable way to confirm a child arrived, is where he said he'd be, or is safe in the gap between two places. No infrastructure for it, no visibility into it.
+
+So parents like Mama Zizi are left with three costly workarounds, and none of them work:
+
+- **Escort the child in person** — safe, but it costs the time she needs for work.
+- **Pay for extra supervision** — a driver, a helper — safe, but it costs money she'd rather not spend.
+- **Keep the child close** — cheap and easy, but it costs the child the independence and exploration he wants.
+
+Every option trades away something she can't afford to lose. She isn't choosing between "safe" and "independent" for her child — she's choosing between her job and his safety, because the public spaces around her offer no third way.
+
+That's the gap `Scouters` set out to close: let children move independently between public spaces, without asking a parent to give up safety, time, or money to allow it.
+
+## Value Proposition Statement
+For parents who need reassurance of their children safety while roaming around recreation area, Our app offers to provide more personalized way for quick information & communication in closed-loop (community-parents, parents-parents, children-parents, recreation area-parents.)
+
+## Value Proposition Canvas
+
+Mapping how Scouters relieves Mama Zizi's pains and creates gains, against what the product actually delivers.
+
+<div class="vpc-columns">
+  <div class="vpc-col">
+    <p class="vpc-col-label">Value Map — Scouters</p>
+    <div class="vpc-card vpc-card--neutral">
+      <h4>Products &amp; Services</h4>
+      <ul>
+        <li>Real-time parent-child location sharing</li>
+        <li>Safe-zone (geofence) setup per recreation area</li>
+        <li>One-tap check-in from the child's device</li>
+        <li>Closed-loop alerts across community, parents, and recreation-area staff</li>
+      </ul>
+    </div>
+    <div class="vpc-card vpc-card--gain">
+      <h4>Gain Creators</h4>
+      <ul>
+        <li>Live status replaces constant phone calls</li>
+        <li>Child can roam freely within a boundary the parent set</li>
+        <li>Trusted community members can flag something off before it becomes a problem</li>
+        <li>Parent stays focused on work instead of worrying</li>
+      </ul>
+    </div>
+    <div class="vpc-card vpc-card--pain">
+      <h4>Pain Relievers</h4>
+      <ul>
+        <li>Removes the need to personally escort or pay for extra supervision</li>
+        <li>Automatic check-in nudges, so the child doesn't have to remember</li>
+        <li>Immediate alert if the child leaves the safe zone or goes quiet</li>
+        <li>Direct line to nearby trusted parents and recreation-area staff, not just after the fact</li>
+      </ul>
+    </div>
+  </div>
+  <div class="vpc-col">
+    <p class="vpc-col-label">Customer Profile — Mama Zizi</p>
+    <div class="vpc-card vpc-card--gain">
+      <h4>Gains</h4>
+      <ul>
+        <li>Peace of mind without needing to be physically present</li>
+        <li>Keeps her income and career on track</li>
+        <li>Child gets real independence, inside a boundary she trusts</li>
+        <li>One less thing competing for her limited time</li>
+      </ul>
+    </div>
+    <div class="vpc-card vpc-card--neutral">
+      <h4>Customer Job(s)</h4>
+      <ul>
+        <li>Know her child is safe while she's at work</li>
+        <li>Let her child explore public spaces on his own</li>
+        <li>Reach someone trustworthy fast if something feels wrong</li>
+      </ul>
+    </div>
+    <div class="vpc-card vpc-card--pain">
+      <h4>Pains</h4>
+      <ul>
+        <li>Afraid their child might get lost or wander off</li>
+        <li>Afraid their child might be harassed or abused</li>
+        <li>Afraid their child might fall in with the wrong crowd</li>
+        <li>Worried that if she has to look after her child, she won't keep up with work</li>
+        <li>Her child rarely checks in once he's having fun while out and about</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
