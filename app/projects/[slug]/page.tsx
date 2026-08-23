@@ -7,6 +7,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
+import { Mermaid } from "@/components/blog/mermaid";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/social-icons";
 
@@ -94,7 +95,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${project.title} live site`}
+                  aria-label={`${project.title} external link`}
                   className="text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
                 >
                   <ExternalLink size={14} />
@@ -128,6 +129,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               pre({ children }) {
+                const code = children as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
+                if (code?.props?.className?.includes("language-mermaid")) {
+                  return <Mermaid chart={String(code.props.children).replace(/\n$/, "")} />;
+                }
                 return <CodeBlock>{children}</CodeBlock>;
               },
               a: ({ href, children }) => (

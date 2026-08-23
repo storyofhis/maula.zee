@@ -185,6 +185,40 @@ body {
   color: var(--color-accent-dark);
 }
 
+/* ── Design screenshot grid ────────────────────────────── */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 2rem 0;
+}
+
+.design-grid img {
+  width: 100%;
+  aspect-ratio: 402 / 874;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 640px) {
+  .design-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.persona-portrait {
+  width: 160px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+  margin: 1rem 0;
+}
+
+.dark .persona-portrait {
+  border-color: var(--color-border-strong);
+}
+
 /* ── Value proposition canvas ──────────────────────────── */
 .vpc-columns {
   display: grid;

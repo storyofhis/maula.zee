@@ -20,7 +20,7 @@ export default function HomeHero() {
         <AvailabilityBadge />
 
         <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
-          Software Engineer &amp; Researcher
+          Product Engineer &amp; Researcher
         </p>
 
         <h1 className="font-display text-display-xl leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-6 text-balance">

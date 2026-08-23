@@ -72,6 +72,13 @@ const experiences = [
   },
 ];
 
+const milestones = [
+  { tag: "Foundation", period: "2020 – 2024" },
+  { tag: "Frontend", period: "2022 – 2023" },
+  { tag: "Backend", period: "2022 – Now" },
+  { tag: "Product, AI, DevOps, Design", period: "Now" },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -79,7 +86,7 @@ export default function Home() {
         <HomeHero />
 
         <div className="pt-12 md:pt-24 pb-16 md:pb-32">
-          <AboutExperience experiences={experiences} educations={educations} />
+          <AboutExperience experiences={experiences} educations={educations} milestones={milestones} />
         </div>
       </div>
 

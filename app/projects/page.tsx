@@ -42,6 +42,7 @@ const projects: Project[] = [
     year: "2026",
     status: "Archived",
     tags: ["Swift", "SpriteKit", "Game Center"],
+    challenge: "Research Challenge",
     github: "https://github.com/storyofhis/caprince",
     slug: "capyrun-apple-challenge-2",
   },
@@ -92,7 +93,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         heading="Things I've built."
-        body="A mix of professional work, side projects, and open-source experiments — from backend infrastructure to iOS apps."
+        body="A mix of professional work, side projects, and open-source experiments — built as a product engineer across whatever the problem needed."
         headingWidth="max-w-[560px]"
       />
 
