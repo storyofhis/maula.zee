@@ -1,6 +1,6 @@
 ---
 title: "Scouters - Apple Challenge 4"
-tagline: ""
+tagline: "A 4-week challenge app that lets kids move independently between public spaces while parents keep peace of mind."
 tags: ["SwiftUI", "Swift"]
 year: "2026"
 role: "Product Engineer"
@@ -10,113 +10,75 @@ challenge: "Urban Living Experience"
 status: "Archived"
 ---
 
-## The Big Idea: Urban Living Experience
+## Design
 
-Everything started with one big idea: **Urban Living Experience**. We broke it down term by term before deciding what to build around it.
+Final screens from the Figma file, covering onboarding through a completed child check-in.
 
-- **Urban** — something related to a city or town.
-  - *City*: heavily populated, built-up areas with developed infrastructure.
-  - *Town*: district from rural environments.
-- **Living** — actively engaging in joy, purpose, and growth.
-- **Experience** — personal knowledge and understanding gained through first-hand experience of everyday events.
+<div class="design-grid">
+  <img src="/images/project/AppleChallenge/fourth/design/onboarding.png" alt="Onboarding" />
+  <img src="/images/project/AppleChallenge/fourth/design/map-view.png" alt="Map view" />
+  <img src="/images/project/AppleChallenge/fourth/design/find-children.png" alt="Find children" />
+  <img src="/images/project/AppleChallenge/fourth/design/set-meeting-point.png" alt="Set meeting point" />
+  <img src="/images/project/AppleChallenge/fourth/design/meeting-point.png" alt="Meeting point" />
+  <img src="/images/project/AppleChallenge/fourth/design/check-in-code.png" alt="Child check-in code" />
+</div>
 
-From this framing, one essential question surfaced.
+## Process
 
-## Essential Question
+We started from one broad prompt — **Urban Living Experience** — and narrowed it down over several passes:
 
 > How might we create `livable` experiences for people in the city?
 
-So what does "livable" mean? A condition that is suitable, comfortable, fit, pleasant, sustainable, acceptable, and meets `basic needs`.
-
-Which raised the next question — what are those basic needs? Moving around, public spaces, service & daily needs, community & belonging, safety & comfort, and environment.
-
-That framing became our initial challenge.
-
-## Initial Challenge
+"Livable" meant meeting basic needs: moving around, public spaces, safety & comfort, community, environment. That pointed us at mobility, and gave us an initial challenge:
 
 > How can we elevate `Safety` & `Comfort` in `Moving Around` in `Public Space`
 
-## Challenge Statement
-
-- How can we create accesibility in public space
-- How can we utilize existing access to elevate moving around experience
-
-## Stakeholders
-
-Because this project centers on mobility, we mapped out the people and systems involved:
-
-- **Human** — based on our perspective, people think about comfort and psychological state (e.g. a blind date, an event).
-- **Organization** — a group built from individuals to manage and control something (e.g. university, government, workplace).
-- **Logistics** — the process of planning, moving, storing, and delivering goods from one place to another efficiently (e.g. JNE, Lalamove).
-- **Facility** — a building or place used for a particular purpose (e.g. traffic light, zebra crossing).
-- **Transportation** — how people or goods travel from one place to another (e.g. MRT, Transjakarta).
-
-### Mobility
-
-![Mobility](/images/project/AppleChallenge/fourth/mobility.png)
-
-## Refining the Statement
-
-Digging into what "comfort" really meant led us to a second, sharper draft.
-
-### Initial Challenge Statement
-
-> Elevate `safety & Comfort` for mobility in-between public spaces
-
-Comfort, we realized, came down to two things: fast arrival and low cost. That pushed us toward one more refinement.
-
-### Final Challenge Statement
+We mapped the stakeholders around urban mobility — people, organizations (government, workplaces, Gojek), logistics (JNE, Lalamove, couriers), infrastructure (roads, sidewalks, lighting), and transit (MRT, LRT, Transjakarta) — to ground the idea in something real. That sharpened "comfort" into two concrete levers, fast arrival and low cost, which became:
 
 > "Elevate cost-efficiency for moving in-between public spaces"
 
-Two keywords carried this statement:
+Chasing cost-efficiency, we explored Transit-Oriented Development (TOD) areas and the "first mile/last mile" gap between home and transit. We caught ourselves early, though — that gap was already solved by Gojek and Blue Bird, so rebuilding it wasn't a real opportunity. That sent us back to two safety angles we'd shelved: children's safety in public spaces, and mental health for daily commuters. The commuter angle needed research access we didn't have and carried more bias risk, since we're all adult commuters ourselves. Children's safety was a problem we could examine honestly as outsiders.
 
-1. **`cost-efficiency`** — there are three types of cost that are: Money, Health and Time, because we realize that all three is support only. So it must be decrease cost money, increase health and decrease time to spend.
-2. **`public spaces`** — what if we choose TOD (Transit Oriented Development) area?
+That's how we landed on the final direction — **improving safety for children while moving around in public spaces.** Observing recreation spots like Scientia Park and Taman Mini Indonesia Indah (TMII) confirmed it: most public spaces in Indonesia aren't safe enough for parents to let kids roam freely. Which raised the question that shaped everything after — **how can we assure parents that their children can move safely between places?**
 
-![Finding Gap](/images/project/AppleChallenge/fourth/finding-gap.png)
+## Persona
 
-### Improving safety for children while moving around in public spaces
-after we have observed in several places especially in recreation area such as scientia park and taman mini indonesia indah (TMII) 
-we have insight about our observation experience : 
-- most of places in indonesia are not safety for children so that's why it's very rare indonesian parent giving their child to stay far away freely 
+Our persona is a busy working mom, Mama Zizi:
 
-further exploration we realize that 
-- how can we assure the parents that their children can move safely between places?
+> "I want to make sure my children are safe, but I have minimal time and presence due to my work."
 
-
-## Persona 
-our persona it was busy working mom (mama zizi) "I want to make sure my children are safe, but I have minimal time and presence due to my work
- 
 ### Context
-what's my day-to-day like?
-- has responsible in her work 
-- her child likes to go
-- need to make sure her child safe even he is not her side
 
-### Motivation 
-what do I want/need?
-- Safety for my children
-- time for work
-- let my child explore but still under my control
+**What's her day-to-day like?**
+- Has responsibilities at work
+- Her child likes to go out and explore
+- Needs to make sure her child is safe even when he's not by her side
 
-why do I want/need it?
-- my children's safety is important to me 
-- public spaces in indonesia are not trust for security and much not safe
-- lack of self awareness in child
+### Motivation
+
+**What does she want/need?**
+- Safety for her children
+- Time for work
+- To let her child explore, but still under her control
+
+**Why does she want/need it?**
+- Her children's safety is important to her
+- Public spaces in Indonesia aren't trusted for security and often aren't safe
+- Lack of self-awareness in her child
 
 ### Behaviours and Pains
-what do i do to get what I want/need?
-- Trust the environment when letting her child (delegating)
-- pay more to reassurance
-- accompany her child to go
 
-what are my struggles? what am I trying to avoid?
-- Afraid their child might get lost or wander off.
-- Afraid their child might be harassed or abused.
-- Afraid their child might fall in with the wrong crowd.
-- Worried that if they have to look after their child, they won't be able to keep up with their work.
-- Their child rarely checks in once they're having fun while out and about.
+**What does she do to get what she wants/needs?**
+- Trusts the environment when letting her child go (delegating)
+- Pays more for reassurance
+- Accompanies her child in person
+
+**What are her struggles? What is she trying to avoid?**
+- Afraid her child might get lost or wander off.
+- Afraid her child might be harassed or abused.
+- Afraid her child might fall in with the wrong crowd.
+- Worried that if she has to look after her child, she won't be able to keep up with her work.
+- Her child rarely checks in once he's having fun while out and about.
 
 ## The Problem
 
@@ -133,7 +95,8 @@ Every option trades away something she can't afford to lose. She isn't choosing 
 That's the gap `Scouters` set out to close: let children move independently between public spaces, without asking a parent to give up safety, time, or money to allow it.
 
 ## Value Proposition Statement
-For parents who need reassurance of their children safety while roaming around recreation area, Our app offers to provide more personalized way for quick information & communication in closed-loop (community-parents, parents-parents, children-parents, recreation area-parents.)
+
+For parents who need reassurance about their children's safety while roaming recreation areas, Scouters offers a more personalized way to get quick information and communicate in a closed loop — community-parents, parents-parents, children-parents, and recreation-area-parents.
 
 ## Value Proposition Canvas
 
@@ -192,9 +155,9 @@ Mapping how Scouters relieves Mama Zizi's pains and creates gains, against what 
     <div class="vpc-card vpc-card--pain">
       <h4>Pains</h4>
       <ul>
-        <li>Afraid their child might get lost or wander off</li>
-        <li>Afraid their child might be harassed or abused</li>
-        <li>Afraid their child might fall in with the wrong crowd</li>
+        <li>Afraid her child might get lost or wander off</li>
+        <li>Afraid her child might be harassed or abused</li>
+        <li>Afraid her child might fall in with the wrong crowd</li>
         <li>Worried that if she has to look after her child, she won't keep up with work</li>
         <li>Her child rarely checks in once he's having fun while out and about</li>
       </ul>
@@ -202,3 +165,47 @@ Mapping how Scouters relieves Mama Zizi's pains and creates gains, against what 
   </div>
 </div>
 
+## Tech
+
+### Architecture
+
+Scouters runs on two paired devices — child and parent — sharing one CloudKit zone through `CKShare`. No custom backend, no server to stand up in a one-week build. The child's phone is the source of truth: it owns the location data and uploads to it; the parent's phone reads the share and defines safe zones.
+
+| Layer | Choice | Why |
+|---|---|---|
+| Location | `CoreLocation` | Native, battery-aware, works offline |
+| Sync | `CloudKit` (`CKShare`) | Zero backend, built-in access control between two Apple IDs |
+| Local cache | `SwiftData` | Geofence still enforces if the child's connection drops |
+| Geofencing | `CLCircularRegion` monitoring | OS-level, wakes the app even if killed |
+| Background | `BackgroundTasks` | Periodic resync of fence definitions to the parent |
+
+### Key insight
+
+The naive version of this — poll the child's coordinates every few seconds and check them against the fence in code — is the easiest thing to build and the wrong thing to ship. A `CLLocationManager` fix isn't instantaneous; there's a real gap, often several seconds, between where the child actually is and what the last computed fix says. Poll on that assumption and you'll either miss an exit or fire a false alarm the moment the fix lags behind a fast-moving kid.
+
+The fix was to stop treating geofencing as something *my* code checks, and hand it to the OS instead:
+
+```swift
+func startMonitoring(fence: SafeZone) {
+    let center = CLLocationCoordinate2D(
+        latitude: fence.centerLatitude,
+        longitude: fence.centerLongitude
+    )
+    let region = CLCircularRegion(center: center, radius: fence.radiusMeters, identifier: fence.id)
+    region.notifyOnExit = true
+    locationManager.startMonitoring(for: region)
+}
+
+// iOS calls this directly on boundary crossing — no polling loop, no lag budget to manage
+func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+    Task {
+        try? await cloudKit.reportExit(zoneID: region.identifier)
+    }
+}
+```
+
+`startMonitoring(for:)` is hardware-backed — it survives app termination, costs a fraction of the battery a polling timer would, and removes an entire class of bugs I would've otherwise had to hand-roll (debouncing, staleness checks, "close enough" counts for fence edges).
+
+### Why CloudKit over a custom backend
+
+With a week on the clock, a REST API plus auth plus a database was time I didn't have. `CKShare` gave me parent-child access control for free — the child shares a zone, the parent accepts the invite, and CloudKit handles who can read and write what. The trade-off is real: it only works within the Apple ecosystem, and debugging share-acceptance flows ate more of the week than I expected. For a challenge scoped to one persona on one platform, the trade was worth making. If Scouters became a real product, the sharing model is the first thing I'd reconsider — cross-platform families need more than shared Apple ID trust between each other.

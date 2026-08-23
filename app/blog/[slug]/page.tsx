@@ -6,6 +6,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
+import { Mermaid } from "@/components/blog/mermaid";
 import { ValuePropositionCanvasDiagram } from "@/components/blog/value-proposition-canvas-diagram";
 import { Clock, Calendar } from "lucide-react";
 import { ViewCounter } from "@/components/blog/view-counter";
@@ -88,6 +89,10 @@ export default async function BlogPostPage({
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               pre({ children }) {
+                const code = children as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
+                if (code?.props?.className?.includes("language-mermaid")) {
+                  return <Mermaid chart={String(code.props.children).replace(/\n$/, "")} />;
+                }
                 return <CodeBlock>{children}</CodeBlock>;
               },
               // @ts-expect-error -- custom tag emitted by rehype-raw, not a standard HTML element

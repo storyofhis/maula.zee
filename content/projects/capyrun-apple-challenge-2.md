@@ -1,123 +1,102 @@
 ---
 title: "CapyRun - Apple Challenge 2"
-tagline: ""
+tagline: "A beginner-friendly guided training app built in 4 weeks to help procrastinating joggers reach their first 5K."
 tags: ["SwiftUI", "Swift"]
 year: "2026"
 role: "Product Engineer"
 timeline: "4 Weeks"
-metric: "Develop an app within a week"
+metric: "Shipped in 4 weeks"
+challenge: "Research Challenge"
 status: "Archived"
 ---
 
-## Team
-- Zee (me)
-- William
-- Caca
-- Wita
-- Rahmi
+## Design
 
-## Deciding the Guiding Question 
-the first thing we have to decide is that question what is your problem. We have to a lot of conversation based since first week. There are areas about questions why people love to run
-Physical, Mental, and Uncategorized.
+Final screens from the Figma file, covering onboarding through the first completed run.
 
-- PHYSICAL
-    - INTERNAL
-        - Why does preparation matter — and what happens when you skip it?
-        - How do you adjust your technique mid-run?
-            - Does breathing technique change the experience?
-            - Why does your stomach hurt — is your running form wrong?
-        - What makes a runner stop?
-        - How does running actually affect the body — biologically?
-- MENTAL
-    - INTERNAL
-        - What's the deeper value people find in running?
-        - What expectations do runners carry — and are they realistic?
-        - What makes a runner stop — emotionally, not physically?
-    - EXTERNAL
-        - What new things do people discover about themselves when they run?
+<div class="design-grid">
+  <img src="/images/project/AppleChallenge/second/design/onboarding.png" alt="Onboarding" />
+  <img src="/images/project/AppleChallenge/second/design/home.png" alt="Home page" />
+  <img src="/images/project/AppleChallenge/second/design/training-plan.png" alt="Training plan" />
+  <img src="/images/project/AppleChallenge/second/design/workout-detail.png" alt="Workout detail" />
+  <img src="/images/project/AppleChallenge/second/design/finish.png" alt="Run finished" />
+  <img src="/images/project/AppleChallenge/second/design/stats.png" alt="Stats page" />
+</div>
 
-UNCATEGORIZED:
-- Why do some people run while others never start — even when it's accessible to everyone?
-- What are the real limitations in running that nobody talks about?
+## App Flow
+
+The flow below maps every screen a first-time user passes through, from onboarding to their first completed run, plus the two return loops (widget and weekly progress) that keep them coming back.
+
+```mermaid
+flowchart LR
+    Intro["Intro / Onboarding\n(multi-step scroll)"] --> Home["Home Page"]
+
+    Home --> Widget["Widget Storyline\nHighlighted: W1D1"]
+
+    Home --> Training["Segmented Training Plan\nHighlighted: W1D1"]
+    Training --> ViewMore["View More"] --> Schedule["Schedule Page\nFull 6-week schedule"]
+    Training --> RunBtn["Run Button"] --> RunPage["Run Page\n- Map\n- Voice cues & timer\n- Live running stats"]
+    RunPage --> Finish["Finish Page\n- Workout summary\n- Route map"]
+
+    Home --> Progress["Weekly Progress Summary\n- Walks\n- Distance\n- Calories"]
+    Progress --> ProgressPage["Progress Page\n- Chart\n- Segmented by week"]
+```
+
+### Screen-by-screen breakdown
+
+**1. Intro / Onboarding**
+A multi-step, scrollable questionnaire that personalizes the training plan before the user ever sees the home screen:
+- Running goal — what the user wants to achieve (e.g. finish a first 5K)
+- Current activity level — how often they already exercise
+- Basic biometrics — gender, height, weight (optional)
+- Weekly commitment — which days the user can realistically run (3 days/week is the recommended default)
+- HealthKit permission request — asks to sync health and activity data
+
+**2. Home Page**
+The central hub. From here the user branches into three destinations: the widget storyline, their segmented training plan, and their weekly progress summary.
+
+**3. Widget Storyline**
+A home-screen widget that visualizes training progress as an ongoing story (the capybara/castle narrative), always highlighting the current session — e.g. Week 1, Day 1 (W1D1) — to nudge the user back into the app.
+
+**4. Segmented Training Plan**
+The core plan view, broken into digestible pieces instead of one long list, with the current session (W1D1) highlighted. Two actions branch from here:
+- **View More →** opens the **Schedule Page**, showing the full 6-week training schedule.
+- **Run →** starts the **Run Page**, which shows the live map, pace/interval voice cues with a timer, and real-time running stats. On completion it hands off to the **Finish Page**, which shows the workout summary and the recorded route on the map.
+
+**5. Weekly Progress Summary**
+A rollup shown from the Home Page covering walks, distance, and calories for the week. Tapping into it opens the **Progress Page**, with a chart view segmented per week so the user can see improvement over time.
+
+## Deciding the Guiding Question
+
+We spent the first week mapping out why people run at all, sorting questions into physical (preparation, technique, what makes runners stop) and mental (the deeper value of running, expectations, motivation) buckets — plus a few uncategorized ones, like why running stays inaccessible despite being one of the easiest sports to start. That mapping narrowed us down to one initial challenge.
+
+### Initial Challenge
+Help people prepare for various types of running
 
 ### Guiding Questions & Why They Matter
-**Why do some people run while others don't — even though it's accessible?**
-
-Most people who run do it for health reasons. Some turn it into a hobby, a way to unwind, or even a social activity where they can meet new people. But even though running is one of the most accessible sports out there, not everyone is into it. Some people face external barriers — an environment that doesn't feel safe or suitable, no running community nearby, or simply no one around them who runs. Others have more personal reasons: they're not motivated, they feel too busy, they already have another sport they prefer, or they've tried running before and it just didn't click for them.
-
-
-**What are the real limitations in running?**
-
-On the physical side, injuries are the most obvious barrier — they stop people before they even build a habit. On the mental side, it's a mix of things: not knowing where to start or what resources exist, a negative stereotype around running ("it's boring," "it's only for serious athletes"), and a lot of misinformation floating around about how running actually works.
-
-
-**What new things do people discover when they run?**
-
-Running has a way of showing you things about yourself you didn't expect. People start to understand their body's real capacity — how strong they are, how far they can push before hitting a wall, and where their physical and mental limits actually lie. They also notice how much their environment shapes their performance and mood, both physically and mentally.
-
-
-**What's the value of running?**
-
-Running helps people know themselves better — their physical limits, their mental resilience. It's one of the most accessible ways to stay active, with almost no equipment needed. For many, it brings mental clarity: a space to think, reset, or just be present. And beyond the solo experience, it opens up real social connections with other runners.
-
-
-**What expectations do runners carry?**
-
-Understanding what people hope to get from running — whether it's healing the mind, relaxing the body, or something else entirely — and whether those expectations match reality.
-
-
-**What makes people stop?**
-
-Understanding the moments when people hit a wall — whether it's an injury that sidelines them, life getting too busy, or simply losing the motivation to keep going.
-
-
-**How much does running actually affect the body?**
-
-Getting a real sense of the impact running has, from each person's perspective. This also connects back to their original reason for starting — did they actually get what they came for? Did running deliver on what they were hoping it would do?
-
-
-**Why does preparation matter?**
-
-Finding out whether people actually think preparation is necessary — and what happens when they skip it. What does running without preparation look like, and what are the real consequences down the line?
-
-
-**How do people figure out their own running techniques?**
-
-Understanding how people develop their personal approach to running — what they pay attention to, where they learned it from, and why they stick with certain techniques over others.
+- **Why do some people run while others don't?** Running is accessible, but the barriers are personal (no motivation, a bad past experience, another sport they prefer) or environmental (unsafe surroundings, no community nearby) — rarely about difficulty.
+- **What are the real limitations?** Injuries are the obvious physical blocker; the mental ones are subtler — not knowing where to start, stereotypes ("it's only for serious athletes"), and misinformation about how running actually works.
+- **What's the value, and what makes people stop?** Runners gain self-knowledge — their physical limits, mental resilience — plus clarity and community. But a busy life, lost motivation, or injury derails that before it becomes a habit.
+- **Why does preparation matter?** Most people underestimate it, and skipping it is what turns a good intention into a stalled one.
 
 ## User Persona
 
 As a beginner runner, I want to run once a week, so that I will be mentally confident and physically capable to run my 1st 5K
 
 ### Brief User Persona
-William "The Procastinating Jogger"
-![User Persona](/images/project/AppleChallenge/second/userpersona.png)
+William "The Procrastinating Jogger"
 
 "I've always wanted to build a consistent running habit, however my laziness, a lot of times, overcome my ambitions..."
+
 ### Opportunity Storyboard
-- **What is their day-to-day like?**
+William is a full-time employee working a busy 9-to-5. Between early commutes and late arrivals, he's often too exhausted for physical activity and ends up doomscrolling instead. He loves running but struggles with inconsistency — he only runs on weekends, lets procrastination win, and feels discouraged by his slow progress.
 
-Meet William, a full-time employee working a busy 9-to-5 schedule. Between early commutes and late arrivals, he often finds himself too exhausted for physical activity, frequently doomscrolling during his free time.William loves running but he is struggling with inconsistency. Because he only runs on weekends and always let his procrastination wins, he lacks stamina and feels discouraged by his slow progress.
-
-- **What do they do to get what they want/need?**
-
-William wants to be more consistent by following a structured training plan and improving his mental health. He aims to run at least twice a week, use the right run equipments, and reach his body goals.
-
-To make this happen, he focuses on setting realistic goals and staying fit through better rest and nutrition.
-
-However, he still struggles with two main problems: it is hard for him to find a training program that actually fits his schedule, and he lacks a proper tracker to keep him consistent.
-
-- **What are their unadressed needs or pains?**
-
-Unfortunately, the training programs William can find are too restrictive to be followed by his busy 9-5 schedule.
-
-Also, these tools do not give an easy to use system with simple and organized step to help him build a running habit he can finally be consistent with. William requires this feature to develop an organized jogging habit that is better suited to his restricted free time and physical goals.
+He wants to fix this with a structured training plan: run at least twice a week, use the right gear, and reach his body goals through better rest and nutrition. But he can't find a program that fits his 9-5 schedule, and he has no proper tracker to keep him consistent — the tools out there are too restrictive and lack a simple, organized system for building the habit.
 
 <div class="callout">
   <span class="callout-sticker">🏃</span>
   <div class="callout-body">When struggling with his procrastination and exhaustion, William The Procrastinating Jogger wants to build a consistent running habit and reach his first 5K. Existing training programs do offer structured training plans but they are too restrictive for his limited free time and lack an easy to use tracking system to help him stay consistent.</div>
 </div>
-
 
 ### Solution Storyboard
 #### **What is your magic solution?**
