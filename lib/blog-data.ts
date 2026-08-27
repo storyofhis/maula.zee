@@ -12,6 +12,7 @@ export interface BlogPost {
     tags: string[];
     readTime: string;
     content: string;
+    project?: string;
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -33,6 +34,7 @@ export function getAllPosts(): BlogPost[] {
             date: data.date,
             tags: data.tags || [],
             readTime: data.readTime,
+            project: data.project,
         };
     });
 }

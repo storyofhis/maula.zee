@@ -1,13 +1,14 @@
 ---
-title: "CapyRun - Apple Challenge 2"
+title: "CapyRun"
 tagline: "A beginner-friendly guided training app built in 4 weeks to help procrastinating joggers reach their first 5K."
 tags: ["SwiftUI", "Swift"]
 year: "2026"
 role: "Product Engineer"
 timeline: "4 Weeks"
-metric: "Shipped in 4 weeks"
+# metric: "Shipped in 4 weeks"
 challenge: "Research Challenge"
-status: "Archived"
+# status: "Archived"
+github: "https://github.com/storyofhis/caprince"
 ---
 
 ## Design
@@ -68,16 +69,24 @@ A rollup shown from the Home Page covering walks, distance, and calories for the
 
 ## Deciding the Guiding Question
 
-We spent the first week mapping out why people run at all, sorting questions into physical (preparation, technique, what makes runners stop) and mental (the deeper value of running, expectations, motivation) buckets — plus a few uncategorized ones, like why running stays inaccessible despite being one of the easiest sports to start. That mapping narrowed us down to one initial challenge.
+We spent the first week sorting every question we had about running into two buckets, then narrowed that map down to one initial challenge.
 
-### Initial Challenge
-Help people prepare for various types of running
+```mermaid
+flowchart TD
+    Start["Why does running stay inaccessible,\ndespite being one of the easiest sports to start?"]
 
-### Guiding Questions & Why They Matter
-- **Why do some people run while others don't?** Running is accessible, but the barriers are personal (no motivation, a bad past experience, another sport they prefer) or environmental (unsafe surroundings, no community nearby) — rarely about difficulty.
-- **What are the real limitations?** Injuries are the obvious physical blocker; the mental ones are subtler — not knowing where to start, stereotypes ("it's only for serious athletes"), and misinformation about how running actually works.
-- **What's the value, and what makes people stop?** Runners gain self-knowledge — their physical limits, mental resilience — plus clarity and community. But a busy life, lost motivation, or injury derails that before it becomes a habit.
-- **Why does preparation matter?** Most people underestimate it, and skipping it is what turns a good intention into a stalled one.
+    Start --> Physical["Physical bucket\nPreparation · Technique\nWhat makes runners stop"]
+    Start --> Mental["Mental bucket\nDeeper value · Expectations\nMotivation"]
+
+    Physical --> Challenge["Initial Challenge\nHelp people prepare for\nvarious types of running"]
+    Mental --> Challenge
+```
+
+**Why do some people run while others don't?** Barriers are personal (no motivation, a bad past experience) or environmental (unsafe surroundings, no community) — rarely about difficulty.
+
+**What are the real limitations?** Injuries are the obvious physical blocker; the mental ones are subtler — not knowing where to start, stereotypes, and misinformation about how running actually works.
+
+**What's the value, and what makes people stop?** Runners gain self-knowledge and community — but a busy life, lost motivation, or injury derails that before it becomes a habit.
 
 ## User Persona
 

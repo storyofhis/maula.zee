@@ -11,7 +11,7 @@ export default function AboutHero() {
       className="mb-12 md:mb-24"
     >
       <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
-        Story &amp; Ethos
+        Who I Am
       </p>
 
       <h1 className="font-display text-display-xl leading-[1.15] md:leading-[1.1] tracking-tight text-ink-primary dark:text-ink-inverse mb-6 md:mb-8 text-balance max-w-[720px]">

@@ -34,7 +34,7 @@ export default function HomeHero() {
           meets system engineering — precise to the pixel, purposeful to the user.
         </p>
 
-        <div className="flex items-center gap-4 mb-8">
+        {/* <div className="flex items-center gap-4 mb-8">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 bg-accent text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:bg-accent-hover transition-colors duration-150 group"
@@ -48,7 +48,7 @@ export default function HomeHero() {
           >
             About me →
           </Link>
-        </div>
+        </div> */}
 
         <div className="flex items-center gap-4">
           <a

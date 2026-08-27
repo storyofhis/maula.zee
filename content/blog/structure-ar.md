@@ -4,6 +4,7 @@ date: "2026-08-17"
 tags: ["engineering"]
 description: "A sonar visualization was cloning over 100 entities a second. The fix wasn't a caching bug — it was the wrong architecture for something that fires every frame."
 readTime: "7 min read"
+project: "sonar-apple-challenge-5"
 ---
 
 # The Cache That Was Never Used: Fixing an AR App That Overheated Phones

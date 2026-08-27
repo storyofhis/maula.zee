@@ -4,6 +4,7 @@ date: "2026-08-05"
 tags: ["engineering"]
 description: "Apple's on-device classifier returns 1,303 generic labels, not the three you need. Here's the filtering pattern that bridges the gap."
 readTime: "6 min read"
+project: "sonar-apple-challenge-5"
 ---
 
 # What Vision's Built-in Classifier Actually Gives You — and Where It Breaks
