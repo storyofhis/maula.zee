@@ -11,7 +11,7 @@ export interface Project {
   description: string;
   year: string;
   tags: string[];
-  status: "Live" | "WIP" | "Archived";
+  // status: "Live" | "WIP" | "Archived";
   url?: string;
   github?: string;
   slug?: string;
@@ -48,7 +48,7 @@ export default function ProjectsSection({ projects }: Props) {
                 <span className="font-mono text-mono-sm text-ink-tertiary">
                   {project.year}
                 </span>
-                <StatusBadge status={project.status} />
+                {/* <StatusBadge status={project.status} /> */}
               </div>
 
               {/* Name */}

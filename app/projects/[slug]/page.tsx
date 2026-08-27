@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getCaseStudyBySlug, getAllCaseStudies } from "@/lib/projects-data";
+import { getAllPosts } from "@/lib/blog-data";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -7,7 +8,8 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/blog/code-block";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { Mermaid } from "@/components/blog/mermaid";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/social-icons";
 
 export async function generateStaticParams() {
@@ -24,6 +26,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const project = getCaseStudyBySlug(slug);
   if (!project) notFound();
+
+  const relatedPosts = getAllPosts().filter((p) => p.project === slug);
 
   return (
     <article className="min-h-screen pt-16 pb-24 px-6">
@@ -94,7 +98,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${project.title} live site`}
+                  aria-label={`${project.title} external link`}
                   className="text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
                 >
                   <ExternalLink size={14} />
@@ -128,6 +132,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               pre({ children }) {
+                const code = children as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
+                if (code?.props?.className?.includes("language-mermaid")) {
+                  return <Mermaid chart={String(code.props.children).replace(/\n$/, "")} />;
+                }
                 return <CodeBlock>{children}</CodeBlock>;
               },
               a: ({ href, children }) => (
@@ -143,6 +151,40 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {project.content}
           </ReactMarkdown>
         </div>
+
+        {/* Related writing */}
+        {relatedPosts.length > 0 && (
+          <section className="mt-16 pt-10 border-t border-border-subtle dark:border-border-strong">
+            <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary mb-6">
+              Related Writing
+            </p>
+            <div className="space-y-4">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex items-start gap-6 bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong rounded-lg px-6 py-6 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-150 ease-out"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="font-mono text-mono-sm text-ink-tertiary mb-2">
+                      {post.readTime}
+                    </div>
+                    <h3 className="font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-1.5">
+                      {post.title}
+                    </h3>
+                    <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed line-clamp-2">
+                      {post.description}
+                    </p>
+                  </div>
+                  <ArrowRight
+                    size={16}
+                    className="mt-1 shrink-0 text-ink-tertiary group-hover:text-accent dark:group-hover:text-accent-dark group-hover:translate-x-1 transition-all duration-150"
+                  />
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Footer */}
         <footer className="mt-16 pt-10 border-t border-border-subtle dark:border-border-strong flex items-center justify-between">

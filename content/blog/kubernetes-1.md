@@ -3,7 +3,7 @@ title: "Kubernetes Mastering Guide - Part 1"
 description: "A practical guide to mastering your jurney of understanding kubernetes"
 date: "July 25, 2026"
 readTime: "30 min read"
-tags: ["engineer"]
+tags: ["engineering"]
 ---
 
 Before we deep dive into it we have to know every concept, why we need kubernetes, and so on.

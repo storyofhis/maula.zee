@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AstronautIcon } from "@/components/icons/astronaut-icon";
 
 
 export default function HeroScene() {
@@ -183,6 +184,18 @@ export default function HeroScene() {
                       "0 0 32px color-mix(in srgb, var(--color-accent) 55%, transparent), 0 6px 24px rgba(0,0,0,0.28)",
                   }}
                 />
+
+                {/* Astronaut, tumbling gently in zero-g */}
+                <motion.div
+                  animate={{ rotate: [-9, 9, -9] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    position: "absolute", inset: 0, zIndex: 2,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                  }}
+                >
+                  <AstronautIcon size={40} className="text-ink-inverse" />
+                </motion.div>
               </div>
             </div>
           </motion.div>

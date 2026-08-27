@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import JourneyTimeline, { type Milestone } from "@/components/about/journey-timeline";
 
 interface Experience {
   title: string;
@@ -21,11 +22,14 @@ interface Education {
 interface Props {
   experiences: Experience[];
   educations: Education[];
+  // milestones: Milestone[];
 }
 
 export default function AboutExperience({ experiences, educations }: Props) {
   return (
     <>
+      {/* <JourneyTimeline milestones={milestones} /> */}
+
       {/* Experience */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
         <div className="lg:col-span-4">
