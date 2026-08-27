@@ -3,6 +3,86 @@ import { Mail, Download, ArrowRight } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/social-icons";
 import AboutHero from "@/components/about/about-hero";
 import { getAllPosts } from "@/lib/blog-data";
+import AboutExperience from "@/components/about/about-experience";
+import AboutValues from "@/components/about/about-values";
+
+
+const educations = [
+  {
+    institution: "Institut Teknologi Sepuluh Nopember (ITS)",
+    degree: "Bachelor of Computer Science",
+    period: "2020 – 2024",
+    description:
+      "Focused on software engineering, algorithms, and system design. Graduated with honors and completed a thesis on scalable web applications.",
+  },
+  // {
+  //   institution: "Apple Developer Academy @ BINUS, Tangerang",
+  //   degree: "Apple Certified Product Engineer",
+  //   period: "March 2026 – Present",
+  //   description:
+  //     "Intensive program covering iOS development, Swift, UI/UX design, and app deployment. Currently building a capstone social networking app for local communities.",
+  // },
+];
+
+const experiences = [
+  {
+    title: "iOS Product Engineer",
+    company: "Apple Developer Academy @ BINUS, Tangerang",
+    period: "Mar 2026 – Present",
+    desc: "Shifted focus from backend systems to product engineering on Apple platforms — building iOS apps from concept to App Store. Deep dive into Swift, SwiftUI, and Apple's Human Interface Guidelines.",
+    technologies: ["Swift", "SwiftUI", "Xcode", "Foundation Models", "UIKit"],
+    highlights: [
+      "Building a capstone social networking app for local communities on iOS",
+      "Studying Apple Foundation Models framework for on-device AI integration",
+      "Practicing full product cycle: ideation, design system, implementation, and user testing",
+      "Applying HIG principles and Apple design language across all projects",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "Bayarind Artha Internusa",
+    period: "Oct 2024 – Feb 2026",
+    desc: "Specialized in backend development including payment gateway integration and microservices. Developed SNAP-standard payment services using Go, NATS, and PostgreSQL.",
+    technologies: ["Go", "NATS", "PostgreSQL", "Redis", "gRPC", "ElasticSearch"],
+    highlights: [
+      "Built payment gateway integrated with Faspay using SNAP API standardization",
+      "Created messaging listener system to track transactions via NATS + ElasticSearch",
+      "Maintained authentication service with gRPC-based encrypted communication",
+      "Migrated payment integration codebase from PHP to Go",
+    ],
+  },
+  {
+    title: "Frontend Software Engineer",
+    company: "Dinas Pendidikan Kota Surabaya",
+    period: "Jan 2022 – Jul 2023",
+    desc: "Built modern web applications with a focus on performance using React, Next.js, TypeScript, and Redux.",
+    technologies: ["React", "Next.js", "TypeScript", "Redux"],
+    highlights: [
+      "Developed responsive web applications across multiple projects",
+      "Managed design systems and resolved frontend bugs",
+      "Collaborated with design and backend teams on large-scale software",
+    ],
+  },
+  {
+    title: "Backend Engineer Intern",
+    company: "Lingotalk",
+    period: "Oct 2022 – Dec 2022",
+    desc: "Focused on backend development and system design for high-performance applications using Node.js and FaunaDB.",
+    technologies: ["Node.js", "TypeScript", "FaunaDB", "Docker"],
+    highlights: [
+      "Built gamification service APIs and deployment tooling",
+      "Designed scalable microservices architecture",
+      "Diagnosed and resolved backend bugs to optimize code efficiency",
+    ],
+  },
+];
+
+// const milestones = [
+//   { tag: "Foundation", period: "2020 – 2024" },
+//   { tag: "Frontend", period: "2022 – 2023" },
+//   { tag: "Backend", period: "2022 – Now" },
+//   { tag: "Product, AI, DevOps, Design", period: "Now" },
+// ];
 
 export default function AboutPage() {
   const retrospectivePosts = getAllPosts().filter((p) =>
@@ -15,7 +95,7 @@ export default function AboutPage() {
         <AboutHero />
 
         {/* Biography */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
+        {/* <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">
           <div className="lg:col-span-4">
             <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
               Biography
@@ -33,10 +113,12 @@ export default function AboutPage() {
               excellence in every detail.
             </p>
           </div>
-        </section>
+        </section> */}
+
+        <AboutValues />
 
         {/* Notes / Retrospectives */}
-        {retrospectivePosts.length > 0 && (
+        {/* {retrospectivePosts.length > 0 && (
           <section className="border-t border-border-subtle dark:border-border-strong pt-12 md:pt-24 mb-16 md:mb-32">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
               <div className="lg:col-span-4">
@@ -81,7 +163,11 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-        )}
+        )} */}
+
+        <div className="pt-12 md:pt-24 pb-16 md:pb-32">
+          <AboutExperience experiences={experiences} educations={educations} />
+        </div>
 
         {/* Contact */}
         <section className="border-t border-border-subtle dark:border-border-strong pt-12 md:pt-24">

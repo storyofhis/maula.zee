@@ -22,13 +22,13 @@ interface Education {
 interface Props {
   experiences: Experience[];
   educations: Education[];
-  milestones: Milestone[];
+  // milestones: Milestone[];
 }
 
-export default function AboutExperience({ experiences, educations, milestones }: Props) {
+export default function AboutExperience({ experiences, educations }: Props) {
   return (
     <>
-      <JourneyTimeline milestones={milestones} />
+      {/* <JourneyTimeline milestones={milestones} /> */}
 
       {/* Experience */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 md:mb-32">

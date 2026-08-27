@@ -4,6 +4,7 @@ description: "A Visual representation of how your product or service intersect w
 date: "July 25, 2026"
 readTime: "5 min read"
 tags: ["product"]
+project: "scouters-apple-challenge-4"
 ---
 
 I first heard about this topic when I joined Apple Developer Academy @ BINUS, Tangerang, where one of the mentors, Ci Valen, told me that a `value proposition canvas` is a tool for marketing experts, product owners, and value creators.
@@ -44,24 +45,30 @@ The two halves connect through what Ci Valen called **product-user fit**: a *pai
 Describe what users **are trying to get done**. These can be **functional or emotional**.
 Use the information you have from "User Persona" because from that you can analyze what kind of user it was and what they jobs that they are gonna do. for example :
 
-- **Users**:
-Busy professionals aged 25 - 40 years old. Working in office 8 to 5. Aspire to have rising professional career.
-
-- **Jobs To Be Done**:
-Learn new language efficiently to improve professional opportunities
+<div class="vpc-card vpc-card--neutral">
+  <ul>
+    <li><strong>Users:</strong> Busy professionals aged 25–40 years old. Working in office 8 to 5. Aspire to have a rising professional career.</li>
+    <li><strong>Jobs To Be Done:</strong> Learn a new language efficiently to improve professional opportunities.</li>
+  </ul>
+</div>
 
 ## Pains 
 >Describe **Bad Outcomes, risks, obstacles, and problems** related to the user's jobs.
 - What are the biggest challenges the users face in accomplishing their tasks? 
 - What frustates the users the most about current solutions?
 
-here are some examples of pains : 
-- Boredom ofr lack of engagement in language learning
-- Hard to maintain commitment
-- Lack of time
-- Feel overwhelmed by language complexity
-- Lack of energy transporting to the offline course
-- Difficulty in finding effective learning methods
+here are some examples of pains :
+
+<div class="vpc-card vpc-card--pain">
+  <ul>
+    <li>Boredom or lack of engagement in language learning</li>
+    <li>Hard to maintain commitment</li>
+    <li>Lack of time</li>
+    <li>Feeling overwhelmed by language complexity</li>
+    <li>Lack of energy transporting to the offline course</li>
+    <li>Difficulty finding effective learning methods</li>
+  </ul>
+</div>
 
 ## Gains
 >Describe the positive outcomes users want to achieve when their job is done.
@@ -69,14 +76,19 @@ here are some examples of pains :
 - What outcomes or benefits are the user hoping to achieve?
 
 here are some examples of gains :
-- Cost-effective language learning 
-- Improved cognitive function
-- Ability to communicate with foreign colleagues/clients
-- Flexibility to learn anytime, everywhere
-- Culture enrichment
-- Self actualization
-- Extra personal values
-- Increase career opportunities
+
+<div class="vpc-card vpc-card--gain">
+  <ul>
+    <li>Cost-effective language learning</li>
+    <li>Improved cognitive function</li>
+    <li>Ability to communicate with foreign colleagues/clients</li>
+    <li>Flexibility to learn anytime, everywhere</li>
+    <li>Culture enrichment</li>
+    <li>Self actualization</li>
+    <li>Extra personal values</li>
+    <li>Increased career opportunities</li>
+  </ul>
+</div>
 
 ## Value Map — Building What You Offer
 
@@ -88,10 +100,14 @@ Once the User Profile is honest, flip to the other half of the canvas. For every
 
 A plain list of what the user gets — features, services, or the product itself. Nothing fancy here yet, just the inventory. Following the language-learning example:
 
-- Mobile app with short, gamified lessons
-- Live conversation practice with native speakers
-- Progress tracking and streaks
-- Offline mode for commutes
+<div class="vpc-card vpc-card--neutral">
+  <ul>
+    <li>Mobile app with short, gamified lessons</li>
+    <li>Live conversation practice with native speakers</li>
+    <li>Progress tracking and streaks</li>
+    <li>Offline mode for commutes</li>
+  </ul>
+</div>
 
 ## Pain Relievers
 
@@ -100,10 +116,15 @@ A plain list of what the user gets — features, services, or the product itself
 - Does it address the pain at its source, or just soften it?
 
 mapped to the pains above:
-- Boredom / lack of engagement → gamified lessons instead of static drills
-- Hard to maintain commitment → daily streaks and reminders
-- Lack of time → 5-minute micro-lessons instead of hour-long classes
-- Overwhelmed by complexity → adaptive difficulty that adjusts to the learner
+
+<div class="vpc-card vpc-card--pain">
+  <ul>
+    <li>Boredom / lack of engagement → gamified lessons instead of static drills</li>
+    <li>Hard to maintain commitment → daily streaks and reminders</li>
+    <li>Lack of time → 5-minute micro-lessons instead of hour-long classes</li>
+    <li>Overwhelmed by complexity → adaptive difficulty that adjusts to the learner</li>
+  </ul>
+</div>
 
 ## Gain Creators
 
@@ -112,10 +133,15 @@ mapped to the pains above:
 - Does it go beyond the baseline, or match what competitors already offer?
 
 mapped to the gains above:
-- Flexibility to learn anytime → offline mode and short sessions fit any schedule
-- Communicate with colleagues/clients → live practice with native speakers, not just vocabulary drills
-- Career opportunities → certificates shareable on LinkedIn
-- Cost-effective learning → subscription cheaper than in-person courses
+
+<div class="vpc-card vpc-card--gain">
+  <ul>
+    <li>Flexibility to learn anytime → offline mode and short sessions fit any schedule</li>
+    <li>Communicate with colleagues/clients → live practice with native speakers, not just vocabulary drills</li>
+    <li>Career opportunities → certificates shareable on LinkedIn</li>
+    <li>Cost-effective learning → subscription cheaper than in-person courses</li>
+  </ul>
+</div>
 
 ## Product-User Fit
 
