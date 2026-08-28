@@ -2,9 +2,9 @@
 title: "Presently"
 tagline: "A reminder app that nudges you through daily activities in a voice you actually want to hear."
 tags: ["SwiftUI", "Swift", "Apple Foundation Model"]
-year: "2026"
-role: "Product Engineer"
-timeline: "4 Weeks"
+# year: "2026"
+# role: "Product Engineer"
+# timeline: "4 Weeks"
 # metric: "Develop an app within a week"
 # status: "Archived"
 ---

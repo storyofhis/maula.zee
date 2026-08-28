@@ -2,11 +2,11 @@
 title: "SonAR"
 tagline: "An AR overlay that makes an invisible ultrasonic echo visible, so a robotics student can see why the robot decided to stop — not just that it did."
 tags: ["SwiftUI", "Swift", "ARKit", "RealityKit", "Vision", "CoreML"]
-year: "2026"
-role: "Product Engineer"
-timeline: "4 Weeks"
+# year: "2026"
+# role: "Product Engineer"
+# timeline: "4 Weeks"
 # metric: "Develop an app within a week"
-challenge: "Emerging Tech"
+# challenge: "Emerging Tech"
 # status: "Archived"
 github: "https://github.com/storyofhis/refactor-ECS"
 ---
