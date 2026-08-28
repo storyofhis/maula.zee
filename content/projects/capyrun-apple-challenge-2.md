@@ -2,9 +2,9 @@
 title: "CapyRun"
 tagline: "A beginner-friendly guided training app built in 4 weeks to help procrastinating joggers reach their first 5K."
 tags: ["SwiftUI", "Swift"]
-year: "2026"
-role: "Product Engineer"
-timeline: "4 Weeks"
+# year: "2026"
+# role: "Product Engineer"
+# timeline: "4 Weeks"
 # metric: "Shipped in 4 weeks"
 challenge: "Research Challenge"
 # status: "Archived"

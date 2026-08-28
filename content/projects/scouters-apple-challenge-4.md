@@ -2,11 +2,11 @@
 title: "Scouters"
 tagline: "A 4-week challenge app that lets kids move independently between public spaces while parents keep peace of mind."
 tags: ["SwiftUI", "Swift"]
-year: "2026"
-role: "Product Engineer"
-timeline: "4 Weeks"
+# year: "2026"
+# role: "Product Engineer"
+# timeline: "4 Weeks"
 # metric: "Develop an app within a week"
-challenge: "Urban Living Experience"
+# challenge: "Urban Living Experience"
 # status: "Archived"
 ---
 
