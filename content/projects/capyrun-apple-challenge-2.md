@@ -47,17 +47,17 @@ flowchart LR
 
 **1. Intro / Onboarding**
 A multi-step, scrollable questionnaire that personalizes the training plan before the user ever sees the home screen:
-- Running goal — what the user wants to achieve (e.g. finish a first 5K)
-- Current activity level — how often they already exercise
-- Basic biometrics — gender, height, weight (optional)
-- Weekly commitment — which days the user can realistically run (3 days/week is the recommended default)
-- HealthKit permission request — asks to sync health and activity data
+- Running goal: what the user wants to achieve (e.g. finish a first 5K)
+- Current activity level: how often they already exercise
+- Basic biometrics: gender, height, weight (optional)
+- Weekly commitment: which days the user can realistically run (3 days/week is the recommended default)
+- HealthKit permission request: asks to sync health and activity data
 
 **2. Home Page**
 The central hub. From here the user branches into three destinations: the widget storyline, their segmented training plan, and their weekly progress summary.
 
 **3. Widget Storyline**
-A home-screen widget that visualizes training progress as an ongoing story (the capybara/castle narrative), always highlighting the current session — e.g. Week 1, Day 1 (W1D1) — to nudge the user back into the app.
+A home-screen widget that visualizes training progress as an ongoing story (the capybara/castle narrative), always highlighting the current session, e.g. Week 1, Day 1 (W1D1), to nudge the user back into the app.
 
 **4. Segmented Training Plan**
 The core plan view, broken into digestible pieces instead of one long list, with the current session (W1D1) highlighted. Two actions branch from here:
@@ -82,11 +82,11 @@ flowchart TD
     Mental --> Challenge
 ```
 
-**Why do some people run while others don't?** Barriers are personal (no motivation, a bad past experience) or environmental (unsafe surroundings, no community) — rarely about difficulty.
+**Why do some people run while others don't?** Barriers are personal (no motivation, a bad past experience) or environmental (unsafe surroundings, no community), rarely about difficulty.
 
-**What are the real limitations?** Injuries are the obvious physical blocker; the mental ones are subtler — not knowing where to start, stereotypes, and misinformation about how running actually works.
+**What are the real limitations?** Injuries are the obvious physical blocker; the mental ones are subtler: not knowing where to start, stereotypes, and misinformation about how running actually works.
 
-**What's the value, and what makes people stop?** Runners gain self-knowledge and community — but a busy life, lost motivation, or injury derails that before it becomes a habit.
+**What's the value, and what makes people stop?** Runners gain self-knowledge and community, but a busy life, lost motivation, or injury derails that before it becomes a habit.
 
 ## User Persona
 
@@ -98,9 +98,9 @@ William "The Procrastinating Jogger"
 "I've always wanted to build a consistent running habit, however my laziness, a lot of times, overcome my ambitions..."
 
 ### Opportunity Storyboard
-William is a full-time employee working a busy 9-to-5. Between early commutes and late arrivals, he's often too exhausted for physical activity and ends up doomscrolling instead. He loves running but struggles with inconsistency — he only runs on weekends, lets procrastination win, and feels discouraged by his slow progress.
+William is a full-time employee working a busy 9-to-5. Between early commutes and late arrivals, he's often too exhausted for physical activity and ends up doomscrolling instead. He loves running but struggles with inconsistency: he only runs on weekends, lets procrastination win, and feels discouraged by his slow progress.
 
-He wants to fix this with a structured training plan: run at least twice a week, use the right gear, and reach his body goals through better rest and nutrition. But he can't find a program that fits his 9-5 schedule, and he has no proper tracker to keep him consistent — the tools out there are too restrictive and lack a simple, organized system for building the habit.
+He wants to fix this with a structured training plan: run at least twice a week, use the right gear, and reach his body goals through better rest and nutrition. But he can't find a program that fits his 9-5 schedule, and he has no proper tracker to keep him consistent: the tools out there are too restrictive and lack a simple, organized system for building the habit.
 
 <div class="callout">
   <span class="callout-sticker">🏃</span>
@@ -149,3 +149,6 @@ Allows William to:
   <div class="callout-body">Our Solutions uses HealthKit, CoreMotion, WidgetKit to tracking his run performance progress by providing him a guided training and flexibility , 
 so that procrastinated runners like William can tracks progression with stats of user overtime, and doesn't feel overwhelmed by complicated programs. </div>
 </div>
+
+## Challenges: technical, product, and execution problems the team hit
+- **Technical: No have much time to develop in Widget** hard to synchronize the state in from main app and 

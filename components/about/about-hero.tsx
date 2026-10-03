@@ -21,8 +21,8 @@ export default function AboutHero() {
       </h1>
 
       <p className="text-body-lg text-ink-secondary dark:text-ink-tertiary max-w-[560px] leading-relaxed">
-        I believe the best interfaces are the ones users never have to think about —
-        where every interaction feels inevitable in hindsight.
+        I believe the best interfaces are the ones users never have to think about.
+        Every interaction should feel inevitable in hindsight.
       </p>
     </motion.section>
   );

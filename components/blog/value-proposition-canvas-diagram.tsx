@@ -139,7 +139,7 @@ export function ValuePropositionCanvasDiagram() {
 
       <figcaption className="mt-4 flex items-center justify-between">
         <span className="font-mono text-mono-sm text-ink-tertiary">
-          Value Proposition Canvas — sketched from a Ci Valen session at Apple Developer Academy
+          Value Proposition Canvas: sketched from a Ci Valen session at Apple Developer Academy
         </span>
 
         <div className="flex items-center gap-3">

@@ -17,7 +17,7 @@ export default function Home() {
                 zee.dev
               </p>
               <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary">
-                &copy; 2026 — Crafted with precision.
+                &copy; 2026. Crafted with precision.
               </p>
             </div>
 

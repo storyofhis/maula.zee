@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { AvailabilityBadge } from "@/components/home/availability-badge";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/social-icons";
-import HeroScene from "@/components/home/hero-scene";
+import ContactGlobe from "@/components/about/contact-globe";
 
 export default function HomeHero() {
   return (
@@ -31,7 +31,7 @@ export default function HomeHero() {
 
         <p className="text-body-lg text-ink-secondary dark:text-ink-tertiary max-w-[560px] mb-10 leading-relaxed">
           I craft high-performance digital experiences where design architecture
-          meets system engineering — precise to the pixel, purposeful to the user.
+          meets system engineering, precise to the pixel and purposeful to the user.
         </p>
 
         {/* <div className="flex items-center gap-4 mb-8">
@@ -78,7 +78,9 @@ export default function HomeHero() {
           </a>
         </div>
       </motion.div>
-      <HeroScene />
+      <div className="shrink-0 w-full max-w-[320px]">
+        <ContactGlobe />
+      </div>
       </div>
     </section>
   );

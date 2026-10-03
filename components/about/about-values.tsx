@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 
 const statements: string[] = [
-    "I'd rather try something and be wrong than theorize about it and be right too late. Trial and error is how I actually learn — ship the small version, see what breaks, fix the real thing instead of the imagined one.",
-  "I don't give up when the first direction turns out wrong — I back up, try the next one, and keep going until something actually holds. Getting stuck isn't the problem; stopping is.",
+    "I'd rather try something and be wrong than theorize about it and be right too late. Trial and error is how I actually learn: ship the small version, see what breaks, fix the real thing instead of the imagined one.",
+  "I don't give up when the first direction turns out wrong. I back up, try the next one, and keep going until something actually holds. Getting stuck isn't the problem; stopping is.",
 ];
 
 export default function AboutValues() {

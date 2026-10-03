@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zee — Engineer & Researcher",
+  title: "Zee, Engineer & Researcher",
   description: "Portfolio of a software engineer who builds at the intersection of design and systems.",
 };
 

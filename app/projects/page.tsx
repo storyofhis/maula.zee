@@ -71,7 +71,7 @@ const projects: Project[] = [
   },
   {
     name: "SonAR",
-    description: "An AR overlay that makes an invisible ultrasonic echo visible, so a robotics student can see why the robot decided to stop — not just that it did.",
+    description: "An AR overlay that makes an invisible ultrasonic echo visible, so a robotics student can see why the robot decided to stop, not just that it did.",
     year: "2026",
     // status: "Archived",
     // challenge: "Emerging Tech",
@@ -88,7 +88,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         heading="Things I've built."
-        body="A mix of professional work, side projects, and open-source experiments — built as a product engineer across whatever the problem needed."
+        body="A mix of professional work, side projects, and open-source experiments, all built as a product engineer across whatever the problem needed."
         headingWidth="max-w-[560px]"
       />
 

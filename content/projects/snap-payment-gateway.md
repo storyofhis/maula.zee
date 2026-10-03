@@ -1,6 +1,6 @@
 ---
 title: "SNAP Payment Gateway"
-tagline: "A production-grade payment service integrated with Faspay, built to the Indonesian national SNAP standard — with sub-100ms routing and full transaction observability."
+tagline: "A production-grade payment service integrated with Faspay, built to the Indonesian national SNAP standard, with sub-100ms routing and full transaction observability."
 tags: ["Go", "NATS", "PostgreSQL", "gRPC", "ElasticSearch"]
 year: "2025"
 role: "Backend Engineer"
@@ -26,7 +26,7 @@ The system I inherited was a monolith with no observability. When a transaction 
 
 ### 1. NATS for async event routing
 
-The first structural change was decomposing the synchronous HTTP chain into an event-driven flow using NATS. Each transaction stage — initiation, processing, gateway callback, settlement — became a distinct NATS subject with a dedicated consumer.
+The first structural change was decomposing the synchronous HTTP chain into an event-driven flow using NATS. Each transaction stage (initiation, processing, gateway callback, settlement) became a distinct NATS subject with a dedicated consumer.
 
 This decoupled the flow's stages from each other. A slow gateway callback no longer blocked the initiation path. Consumer failures became isolated rather than cascading. And each subject was independently observable.
 
@@ -38,11 +38,11 @@ Service-to-service calls that previously used ad-hoc REST moved to gRPC with def
 
 Every transaction event was indexed in ElasticSearch with a consistent structure: transaction ID, merchant ID, status, timestamp, and the raw gateway response payload. This replaced the "read the logs" debugging workflow with a query interface. Finding a failed transaction went from grepping through files to a 10-second ElasticSearch query.
 
-## The Turn
+## The Duplicate We Didn't Design For
 
 The failure mode we'd designed against was message loss. NATS's at-least-once delivery guarantee meant we were confident nothing would be dropped. What we hadn't designed for was the inverse problem: **duplicate processing**.
 
-Network retries — both from our own retry logic and from Faspay's callback retry mechanism — could result in the same transaction being processed twice. Two entries in the ledger. A double charge. This risk only became visible during load testing, when we observed two settlement records for the same transaction ID appearing in the database within the same second.
+Network retries (both from our own retry logic and from Faspay's callback retry mechanism) could result in the same transaction being processed twice. Two entries in the ledger. A double charge. This risk only became visible during load testing, when we observed two settlement records for the same transaction ID appearing in the database within the same second.
 
 The fix was straightforward once we named the problem: idempotency keys at the database level. A `UNIQUE` constraint on transaction ID plus a `ON CONFLICT DO NOTHING` in the upsert query. Any duplicate processing attempt became a silent no-op rather than a double-write.
 
@@ -59,6 +59,6 @@ The lesson: for payment systems, **assume retries will happen, from both directi
 
 ## What I'd Do Differently
 
-I'd put the idempotency key constraint in the initial schema migration, not as a patch after load testing. It's a foundational invariant for any payment system — not an optimization to add later. If I'd framed it as "this table can only ever have one row per transaction ID" from day one, the architecture of every consumer would have been cleaner.
+I'd put the idempotency key constraint in the initial schema migration, not as a patch after load testing. It's a foundational invariant for any payment system, not an optimization to add later. If I'd framed it as "this table can only ever have one row per transaction ID" from day one, the architecture of every consumer would have been cleaner.
 
-More broadly: **write down the failure modes before you write the happy path.** The SNAP spec defines the success flow in detail. The edge cases — partial callbacks, late retries, gateway timeouts — are described in one paragraph. Those one-paragraph footnotes were responsible for 80% of our production incidents.
+More broadly: **write down the failure modes before you write the happy path.** The SNAP spec defines the success flow in detail. The edge cases (partial callbacks, late retries, gateway timeouts) are described in one paragraph. Those one-paragraph footnotes were responsible for 80% of our production incidents.
