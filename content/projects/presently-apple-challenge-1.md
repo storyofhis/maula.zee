@@ -9,7 +9,7 @@ tags: ["SwiftUI", "Swift", "Apple Foundation Model"]
 # status: "Archived"
 ---
 
-## Design — final screens from the Figma file, covering the 3-step onboarding
+## Design: final screens from the Figma file, covering the 3-step onboarding
 
 Pick activities, set a schedule, then choose how each reminder should sound.
 
@@ -19,7 +19,7 @@ Pick activities, set a schedule, then choose how each reminder should sound.
   <img src="/images/project/AppleChallenge/first/design/notification-style.png" alt="Choose notification tone per activity" />
 </div>
 
-## App Flow — one decision per screen, from activity list to notification tone
+## App Flow: one decision per screen, from activity list to notification tone
 
 ```mermaid
 flowchart LR
@@ -28,9 +28,9 @@ flowchart LR
     Tone --> Live["Reminders go live"]
 ```
 
-**Pick activities** — daily things to be reminded about, or a custom one. **Set schedule** — one or more times per activity, repeat daily or on specific days. **Notification style** — each activity gets its own tone, and the reminder copy is generated to match (e.g. *"Hai sayang, waktunya makan ya! Tubuhmu butuh energi hari ini 🥰"* for Manis).
+**Pick activities**: daily things to be reminded about, or a custom one. **Set schedule**: one or more times per activity, repeat daily or on specific days. **Notification style**: each activity gets its own tone, and the reminder copy is generated to match (e.g. *"Hai sayang, waktunya makan ya! Tubuhmu butuh energi hari ini 🥰"* for Manis).
 
-## Tech — on-device Foundation Model generates the reminder copy per tone
+## Tech: on-device Foundation Model generates the reminder copy per tone
 
 ```mermaid
 flowchart LR
@@ -40,4 +40,4 @@ flowchart LR
     Copy -->|Good| Sent["Notification Sent"]
 ```
 
-Copy isn't a static template swapping a word or two — it's generated per activity and tone, so "Manis" and "Humor" genuinely read like different voices. Running it on-device means no round-trip and no user data leaving the phone for something as small as a reminder string.
+Copy isn't a static template swapping a word or two. It's generated per activity and tone, so "Manis" and "Humor" genuinely read like different voices. Running it on-device means no round-trip and no user data leaving the phone for something as small as a reminder string.

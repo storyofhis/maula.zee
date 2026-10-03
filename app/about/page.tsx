@@ -29,7 +29,7 @@ const experiences = [
     title: "iOS Product Engineer",
     company: "Apple Developer Academy @ BINUS, Tangerang",
     period: "Mar 2026 – Present",
-    desc: "Shifted focus from backend systems to product engineering on Apple platforms — building iOS apps from concept to App Store. Deep dive into Swift, SwiftUI, and Apple's Human Interface Guidelines.",
+    desc: "Shifted focus from backend systems to product engineering on Apple platforms, building iOS apps from concept to App Store. Deep dive into Swift, SwiftUI, and Apple's Human Interface Guidelines.",
     technologies: ["Swift", "SwiftUI", "Xcode", "Foundation Models", "UIKit"],
     highlights: [
       "Building a capstone social networking app for local communities on iOS",
@@ -108,7 +108,7 @@ export default function AboutPage() {
               into robust backend architectures and payment systems.
             </p>
             <p className="text-body-lg text-ink-secondary dark:text-ink-tertiary leading-relaxed">
-              I believe software is more than code — it's a medium for solving real-world problems with elegance
+              I believe software is more than code: it's a medium for solving real-world problems with elegance
               and precision. Whether optimizing a database query or refining a micro-interaction, I strive for
               excellence in every detail.
             </p>
@@ -190,9 +190,13 @@ export default function AboutPage() {
                 >
                   <Mail size={15} /> Get in touch
                 </a>
-                <button className="inline-flex items-center gap-2 border border-border-default dark:border-border-strong text-ink-primary dark:text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:bg-bg-secondary dark:hover:bg-bg-dark-muted transition-colors duration-150">
+                <a
+                  href="/CV-Maula.pdf"
+                  download="CV Maula.pdf"
+                  className="inline-flex items-center gap-2 border border-border-default dark:border-border-strong text-ink-primary dark:text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:bg-bg-secondary dark:hover:bg-bg-dark-muted transition-colors duration-150"
+                >
                   <Download size={15} /> Download CV
-                </button>
+                </a>
               </div>
 
               <div className="flex items-center gap-8">

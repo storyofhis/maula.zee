@@ -6,13 +6,13 @@ const experiences = [
   {
     role: "Frontend Architect",
     company: "Design Research Hub",
-    period: "2024 — Present",
+    period: "2024–Present",
     desc: "Leading the development of complex data visualization tools and design systems using React and Next.js.",
   },
   {
     role: "Backend Engineer",
     company: "SystemScale",
-    period: "2022 — 2024",
+    period: "2022–2024",
     desc: "Scaled payment infrastructures and microservices using Node.js, Docker, and NATS messaging systems.",
   },
 ];
@@ -26,7 +26,7 @@ export default function HomeExperience() {
             Selected Experience
           </p>
           <p className="text-body-md text-ink-secondary dark:text-ink-tertiary leading-relaxed">
-            A decade of crafting digital systems — from rapid prototypes to global infrastructure.
+            A decade of crafting digital systems, from rapid prototypes to global infrastructure.
           </p>
         </div>
 

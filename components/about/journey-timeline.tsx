@@ -16,7 +16,7 @@ export default function JourneyTimeline({ milestones }: { milestones: Milestone[
       </p>
 
       <div className="relative flex flex-col md:flex-row md:justify-between gap-8 md:gap-4">
-        {/* trajectory — mobile: vertical, desktop: horizontal */}
+        {/* trajectory: vertical on mobile, horizontal on desktop */}
         <div
           className="md:hidden absolute left-2 top-2 bottom-2 w-px"
           style={{
