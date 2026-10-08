@@ -1,15 +1,17 @@
 import { Mail } from "lucide-react";
 import HomeHero from "@/components/home/home-hero";
 import AboutExperience from "@/components/about/about-experience";
+import FloatingScene from "@/components/background/floating-scene";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-[calc(100dvh-3.5rem)] flex flex-col">
+      <FloatingScene />
       <div className="max-w-[1120px] mx-auto px-6 w-full flex-1">
         <HomeHero />
       </div>
 
-      <footer className="border-t border-border-subtle dark:border-border-strong py-16">
+      <footer className="py-6">
         <div className="max-w-[1120px] mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div>

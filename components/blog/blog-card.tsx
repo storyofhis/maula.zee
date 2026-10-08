@@ -1,5 +1,7 @@
-import Link from 'next/link';
-import { ViewCounter } from './view-counter';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { GlassCard, PillTag } from "../atoms/glass-card";
+import { ViewCounter } from "./view-counter";
 
 interface BlogCardProps {
   title: string;
@@ -12,36 +14,37 @@ interface BlogCardProps {
 
 export function BlogCard({ title, description, date, readTime, tags, slug }: BlogCardProps) {
   return (
-    <Link
-      href={`/blog/${slug}`}
-      className="group block bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong rounded-lg p-6 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-150 ease-out"
-    >
-      <div className="flex flex-wrap items-center gap-2 font-mono text-mono-sm text-ink-tertiary mb-4">
-        <span>{date}</span>
-        <span>·</span>
-        <span>{readTime}</span>
-        <span>·</span>
-        <ViewCounter slug={slug} noIncrement={true} />
+    <GlassCard className="flex flex-col h-full p-6">
+      <div className="relative flex items-center justify-between gap-4 mb-4">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-mono-sm text-ink-tertiary">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime}</span>
+          <span>·</span>
+          <ViewCounter slug={slug} noIncrement={true} />
+        </div>
+        <ArrowUpRight
+          size={16}
+          aria-hidden="true"
+          className="shrink-0 text-ink-tertiary opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-all duration-300 ease-out"
+        />
       </div>
 
-      <h3 className="font-display text-display-md leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-3">
-        {title}
+      <h3 className="relative font-display text-display-md leading-snug tracking-tight text-ink-primary dark:text-ink-inverse mb-3">
+        <Link href={`/blog/${slug}`} className="after:absolute after:-inset-6 after:z-10 focus-visible:outline-none">
+          {title}
+        </Link>
       </h3>
 
-      <p className="text-body-md text-ink-secondary dark:text-ink-tertiary leading-relaxed line-clamp-2 mb-5">
+      <p className="relative text-body-md text-ink-secondary dark:text-ink-tertiary leading-relaxed line-clamp-2 flex-1 mb-6">
         {description}
       </p>
 
-      <div className="flex flex-wrap gap-2 pt-4 border-t border-border-subtle dark:border-border-strong">
+      <div className="relative flex flex-wrap gap-1.5">
         {tags.map((tag) => (
-          <span
-            key={tag}
-            className="font-mono text-mono-sm text-ink-secondary dark:text-ink-tertiary bg-bg-primary dark:bg-bg-dark border border-border-subtle dark:border-border-strong px-2.5 py-1 rounded-sm"
-          >
-            {tag}
-          </span>
+          <PillTag key={tag}>{tag}</PillTag>
         ))}
       </div>
-    </Link>
+    </GlassCard>
   );
 }

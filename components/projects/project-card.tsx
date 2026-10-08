@@ -1,23 +1,27 @@
-import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
-import { GitHubIcon } from '../icons/social-icons';
-import { TechTag } from '../atoms/tech-tag';
-import { Project } from '../home/projects-section';
-import { StatusBadge } from '../atoms/status-badge';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { GlassCard, PillTag } from "../atoms/glass-card";
+import type { Project } from "../home/projects-section";
 
-export function ProjectCard({ name, description, year, tags, github, url, slug }: Project) {
+export function ProjectCard({ name, description, year, tags, slug }: Project) {
   const caseStudyHref = slug ? `/projects/${slug}` : undefined;
 
   return (
-    <div className="group relative flex flex-col h-full bg-bg-secondary dark:bg-bg-dark-muted border border-border-subtle dark:border-border-strong rounded-lg p-6 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-150 ease-out">
-      <div className="flex items-center justify-between mb-4">
+    <GlassCard className="flex flex-col h-full p-6">
+      <div className="relative flex items-center justify-between mb-5">
         <span className="font-mono text-mono-sm text-ink-tertiary">{year}</span>
-        {/* <StatusBadge status={status} /> */}
+        {caseStudyHref && (
+          <ArrowUpRight
+            size={16}
+            aria-hidden="true"
+            className="text-ink-tertiary opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-all duration-300 ease-out"
+          />
+        )}
       </div>
 
-      <h2 className="font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-150 mb-2">
+      <h2 className="relative font-display text-display-sm leading-snug tracking-tight text-ink-primary dark:text-ink-inverse mb-2">
         {caseStudyHref ? (
-          <Link href={caseStudyHref} className="after:absolute after:inset-0">
+          <Link href={caseStudyHref} className="after:absolute after:-inset-6 after:z-10 focus-visible:outline-none">
             {name}
           </Link>
         ) : (
@@ -25,42 +29,15 @@ export function ProjectCard({ name, description, year, tags, github, url, slug }
         )}
       </h2>
 
-      <p className="text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed flex-1 mb-4">
+      <p className="relative text-body-sm text-ink-secondary dark:text-ink-tertiary leading-relaxed flex-1 mb-6">
         {description}
       </p>
 
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="relative flex flex-wrap gap-1.5">
         {tags.map((tag) => (
-          <TechTag key={tag}>{tag}</TechTag>
+          <PillTag key={tag}>{tag}</PillTag>
         ))}
       </div>
-
-      {/* {(github || url) && (
-        <div className="relative z-10 flex items-center gap-3 pt-3 mt-auto border-t border-border-subtle dark:border-border-strong">
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${name} on GitHub`}
-              className="text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
-            >
-              <GitHubIcon size={14} />
-            </a>
-          )}
-          {url && (
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${name} live site`}
-              className="text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
-            >
-              <ExternalLink size={14} />
-            </a>
-          )}
-        </div>
-      )} */}
-    </div>
-  )
+    </GlassCard>
+  );
 }

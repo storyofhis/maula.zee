@@ -7,6 +7,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen pt-16 pb-24 px-6 max-w-[1120px] mx-auto">
+      <div aria-hidden="true" className="page-ambient pointer-events-none fixed inset-0 -z-10" />
       <BlogHeader />
       <BlogSearch posts={posts} />
     </main>

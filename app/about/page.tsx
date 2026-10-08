@@ -5,6 +5,7 @@ import AboutHero from "@/components/about/about-hero";
 import { getAllPosts } from "@/lib/blog-data";
 import AboutExperience from "@/components/about/about-experience";
 import AboutValues from "@/components/about/about-values";
+import { GlassCard } from "@/components/atoms/glass-card";
 
 
 const educations = [
@@ -13,7 +14,7 @@ const educations = [
     degree: "Bachelor of Computer Science",
     period: "2020 – 2024",
     description:
-      "Focused on software engineering, algorithms, and system design. Graduated with honors and completed a thesis on scalable web applications.",
+      "Focused on software engineering, algorithms, and system design. Graduated with honors and completed a thesis on scalable system applications.",
   },
   // {
   //   institution: "Apple Developer Academy @ BINUS, Tangerang",
@@ -91,6 +92,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen">
+      <div aria-hidden="true" className="page-ambient pointer-events-none fixed inset-0 -z-10" />
       <main className="max-w-[1120px] mx-auto px-6 pt-16 pb-32">
         <AboutHero />
 
@@ -165,25 +167,25 @@ export default function AboutPage() {
           </section>
         )} */}
 
-        <div className="pt-12 md:pt-24 pb-16 md:pb-32">
+        <div className="pb-4 md:pb-8">
           <AboutExperience experiences={experiences} educations={educations} />
         </div>
 
         {/* Contact */}
-        <section className="border-t border-border-subtle dark:border-border-strong pt-12 md:pt-24">
+        <section>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="font-mono text-label uppercase tracking-widest text-ink-secondary dark:text-ink-tertiary">
                 Contact
               </p>
             </div>
-            <div className="lg:col-span-8">
-              <h2 className="font-display text-display-lg leading-[1.15] tracking-tight text-ink-primary dark:text-ink-inverse mb-10 text-balance">
-                Let's build something{" "}
+            <GlassCard className="lg:col-span-8 p-8 md:p-12">
+              <h2 className="relative font-display text-display-lg leading-[1.15] tracking-tight text-ink-primary dark:text-ink-inverse mb-10 text-balance">
+                Let&apos;s build something{" "}
                 <span className="text-accent dark:text-accent-dark italic">worth building</span>.
               </h2>
 
-              <div className="flex flex-wrap gap-3 mb-16">
+              <div className="relative flex flex-wrap gap-3 mb-12">
                 <a
                   href="mailto:azizi.maula@gmail.com"
                   className="inline-flex items-center gap-2 bg-accent text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:bg-accent-hover transition-colors duration-150"
@@ -193,13 +195,13 @@ export default function AboutPage() {
                 <a
                   href="/CV-Maula.pdf"
                   download="CV Maula.pdf"
-                  className="inline-flex items-center gap-2 border border-border-default dark:border-border-strong text-ink-primary dark:text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:bg-bg-secondary dark:hover:bg-bg-dark-muted transition-colors duration-150"
+                  className="inline-flex items-center gap-2 border border-black/10 dark:border-white/12 bg-white/60 dark:bg-white/[0.04] text-ink-primary dark:text-ink-inverse px-5 py-2.5 rounded-md text-body-sm font-medium hover:border-black/20 dark:hover:border-white/25 transition-colors duration-150"
                 >
                   <Download size={15} /> Download CV
                 </a>
               </div>
 
-              <div className="flex items-center gap-8">
+              <div className="relative flex items-center gap-8">
                 <Link
                   href="/"
                   className="font-mono text-mono-sm text-ink-secondary dark:text-ink-tertiary hover:text-ink-primary dark:hover:text-ink-inverse transition-colors duration-150"
@@ -212,7 +214,7 @@ export default function AboutPage() {
                 >
                   Writing
                 </Link>
-                <div className="h-4 w-px bg-border-default dark:bg-border-strong" />
+                <div className="h-4 w-px bg-black/10 dark:bg-white/12" />
                 <a
                   href="https://github.com/storyofhis"
                   target="_blank"
@@ -232,7 +234,7 @@ export default function AboutPage() {
                   <LinkedInIcon size={16} />
                 </a>
               </div>
-            </div>
+            </GlassCard>
           </div>
         </section>
       </main>
