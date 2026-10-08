@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { AvailabilityBadge } from "@/components/home/availability-badge";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/social-icons";
-import ContactGlobe from "@/components/about/contact-globe";
+// import ContactGlobe from "@/components/about/contact-globe";
 
 export default function HomeHero() {
   return (
-    <section className="pt-16 pb-12 md:pt-32 md:pb-24">
+    <section className="pt-12 pb-8 md:pt-24 md:pb-12">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
       <motion.div
         initial={{ opacity: 0, y: 80 }}
@@ -78,9 +78,9 @@ export default function HomeHero() {
           </a>
         </div>
       </motion.div>
-      <div className="shrink-0 w-full max-w-[320px]">
+      {/* <div className="shrink-0 w-full max-w-[320px]">
         <ContactGlobe />
-      </div>
+      </div> */}
       </div>
     </section>
   );

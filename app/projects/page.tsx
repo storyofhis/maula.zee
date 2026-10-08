@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/molecules/page-header";
 import { ProjectCard } from "@/components/projects/project-card";
+import { BuildIcon } from "@/components/projects/build-icon";
 import type { Project } from "@/components/home/projects-section";
 
 const projects: Project[] = [
@@ -85,14 +86,27 @@ const projects: Project[] = [
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen pt-16 pb-24 px-6 max-w-[1120px] mx-auto">
-      <PageHeader
-        eyebrow="Projects"
-        heading="Things I've built."
-        body="A mix of professional work, side projects, and open-source experiments, all built as a product engineer across whatever the problem needed."
-        headingWidth="max-w-[560px]"
-      />
+      <div aria-hidden="true" className="page-ambient pointer-events-none fixed inset-0 -z-10" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-16">
+        <PageHeader
+          eyebrow="Projects"
+          heading="Things I've built."
+          body="A mix of professional work, side projects, and open-source experiments, all built as a product engineer across whatever the problem needed."
+          headingWidth="max-w-[560px]"
+          className="mb-0!"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+          className="hidden md:block shrink-0 -my-8 md:mr-0 lg:mr-6"
+        >
+          <BuildIcon className="block size-64 lg:size-80" />
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project, i) => (
           <motion.div
             key={project.name}
